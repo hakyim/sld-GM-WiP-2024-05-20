@@ -1,0 +1,226 @@
+[
+  {
+    "objectID": "index.html#gwas-continues-to-discover-more-loci",
+    "href": "index.html#gwas-continues-to-discover-more-loci",
+    "title": "",
+    "section": "GWAS Continues to Discover more Loci",
+    "text": "GWAS Continues to Discover more Loci\n\n\n\ndownloaded April 2024"
+  },
+  {
+    "objectID": "index.html#mostly-noncoding-so-mechanism-not-well-known",
+    "href": "index.html#mostly-noncoding-so-mechanism-not-well-known",
+    "title": "",
+    "section": "Mostly noncoding so mechanism not well known",
+    "text": "Mostly noncoding so mechanism not well known\n\n\n\n\n\n\n\nRNA-Seq is too expensive\nMany tissues such has brain, pancreas, etc are not accessible\nDifferentially expressed genes can be consequence of disease status"
+  },
+  {
+    "objectID": "index.html#gene-expression-can-be-predicted-from-genotype",
+    "href": "index.html#gene-expression-can-be-predicted-from-genotype",
+    "title": "",
+    "section": "Gene expression can be predicted from genotype",
+    "text": "Gene expression can be predicted from genotype"
+  },
+  {
+    "objectID": "index.html#some-genes-are-very-well-predicted",
+    "href": "index.html#some-genes-are-very-well-predicted",
+    "title": "",
+    "section": "Some genes are very well predicted",
+    "text": "Some genes are very well predicted"
+  },
+  {
+    "objectID": "index.html#accuracy-of-prediction-depends-on-heritability",
+    "href": "index.html#accuracy-of-prediction-depends-on-heritability",
+    "title": "",
+    "section": "Accuracy of prediction depends on heritability",
+    "text": "Accuracy of prediction depends on heritability"
+  },
+  {
+    "objectID": "index.html#advantages-of-gene-level-associations",
+    "href": "index.html#advantages-of-gene-level-associations",
+    "title": "",
+    "section": "Advantages of gene level associations",
+    "text": "Advantages of gene level associations\n\nReduced multiple testing burden (from 10e6 to 10e4)\nThe function of genes are much better annotated than SNPs\nValidation in other model systems is possible\nReverse causality issues is less problematic because disease status doesn’t affect germline genetic markers\nIt provides the direction of effects, i.e. whether up or down regulation of a gene - increases the risk of a disease\nThe candidate causal gene is a good target for drug development"
+  },
+  {
+    "objectID": "index.html#predixcan-results-identify-drug-repositioning-candidates",
+    "href": "index.html#predixcan-results-identify-drug-repositioning-candidates",
+    "title": "",
+    "section": "PrediXcan results identify drug repositioning candidates",
+    "text": "PrediXcan results identify drug repositioning candidates\n\n\n\nSo et al, Nature Neuroscience 2017"
+  },
+  {
+    "objectID": "index.html#predixcan-results-are-predictive-of-drug-target-success",
+    "href": "index.html#predixcan-results-are-predictive-of-drug-target-success",
+    "title": "",
+    "section": "PrediXcan Results Are Predictive of Drug Target Success",
+    "text": "PrediXcan Results Are Predictive of Drug Target Success"
+  },
+  {
+    "objectID": "index.html#limitations-of-twas",
+    "href": "index.html#limitations-of-twas",
+    "title": "",
+    "section": "Limitations of TWAS",
+    "text": "Limitations of TWAS\n\n\n\nNot very good at predicting low heritability genes which are more likely to be disease relevant\nPredictions don’t transfer well across ancestries\nEffect of rare variation is missed\nSteady state eQTL may not be disease relevant"
+  },
+  {
+    "objectID": "index.html#leeuw-et-al-report-2023-inflation-in-twas",
+    "href": "index.html#leeuw-et-al-report-2023-inflation-in-twas",
+    "title": "",
+    "section": "Leeuw et al report (2023) inflation in TWAS",
+    "text": "Leeuw et al report (2023) inflation in TWAS"
+  },
+  {
+    "objectID": "index.html#leeuw-et-als-flawed-twas-null-hypothesis",
+    "href": "index.html#leeuw-et-als-flawed-twas-null-hypothesis",
+    "title": "",
+    "section": "Leeuw et al’s Flawed TWAS Null Hypothesis",
+    "text": "Leeuw et al’s Flawed TWAS Null Hypothesis\n\n\n\\[  Y = \\beta ~ G_E +  \\epsilon_\\text{twas} \\] \\[  G_E = \\sum_k \\gamma_k ~ X_k \\]"
+  },
+  {
+    "objectID": "index.html#what-is-wrong-with-leeuw-et-als-reformulated-hypothesis",
+    "href": "index.html#what-is-wrong-with-leeuw-et-als-reformulated-hypothesis",
+    "title": "",
+    "section": "What is wrong with Leeuw et al’s reformulated hypothesis?",
+    "text": "What is wrong with Leeuw et al’s reformulated hypothesis?\n\n\\[H_0\\!:~ \\text{cov}(\\hat{G}_E, Y)  = 0\\]"
+  },
+  {
+    "objectID": "index.html#what-is-wrong-with-leeuw-et-als-reformulated-hypothesis-1",
+    "href": "index.html#what-is-wrong-with-leeuw-et-als-reformulated-hypothesis-1",
+    "title": "",
+    "section": "What is wrong with Leeuw et al’s reformulated hypothesis?",
+    "text": "What is wrong with Leeuw et al’s reformulated hypothesis?\n\n\\[H_0\\!:~~~~ \\hat\\beta  ~~~~~~ = 0\\]"
+  },
+  {
+    "objectID": "index.html#take-home-message",
+    "href": "index.html#take-home-message",
+    "title": "",
+    "section": "Take home message",
+    "text": "Take home message\n \n\nNever equate random variables with fixed variables"
+  },
+  {
+    "objectID": "index.html#leeuws-et-al-claim-that-error-in-variable-causes-inflation",
+    "href": "index.html#leeuws-et-al-claim-that-error-in-variable-causes-inflation",
+    "title": "",
+    "section": "Leeuws et al claim that error in variable causes inflation",
+    "text": "Leeuws et al claim that error in variable causes inflation\n\n\nWe want to regress \\(Y\\) on \\(T\\) \\[  Y = \\beta ~ T +  \\epsilon_\\text{twas} \\]\n\\[  T = \\sum_k \\gamma_k ~ X_k \\]\nBut we only have the noisy version of \\(T\\), \\(\\tilde{T} = \\sum_k \\tilde{\\gamma}_k ~ X_k\\) and we end up regressing \\(Y\\) on \\(\\tilde{T}\\)\n\n\\[  Y = \\beta ~ \\tilde{T} +  \\tilde\\epsilon \\]\n\\[  \\tilde{T} = \\sum_k \\tilde{\\gamma}_k ~ X_k \\]"
+  },
+  {
+    "objectID": "index.html#but-error-in-variables-literature-contradicts-that-claim",
+    "href": "index.html#but-error-in-variables-literature-contradicts-that-claim",
+    "title": "",
+    "section": "But error in variables literature contradicts that claim",
+    "text": "But error in variables literature contradicts that claim\n \n\nNo inflation when using noisy explanatory variables\n\n\n\nThere is attenuation bias \\[| E \\hat\\beta | &lt; |\\beta|\\]\n\n\n\nFuller, Wayne, Measurement Error Models. 1987, John Wiley & Sons"
+  },
+  {
+    "objectID": "index.html#joint-work-with",
+    "href": "index.html#joint-work-with",
+    "title": "",
+    "section": "Joint work with",
+    "text": "Joint work with"
+  },
+  {
+    "objectID": "index.html#twas-model",
+    "href": "index.html#twas-model",
+    "title": "",
+    "section": "TWAS Model",
+    "text": "TWAS Model\n\\[\\begin{align*}\n  Y &= \\beta ~ T +  \\epsilon_\\text{twas} \\\\\n  T &= \\sum_k \\gamma_k ~ X_k\n\\end{align*}\\]\n\nWhat happens if \\(Y\\) has a polygenic component? \\[ \\epsilon_\\text{twas} = \\sum_k X_k  ~\\delta_k + \\epsilon \\]"
+  },
+  {
+    "objectID": "index.html#example-single-eqtl-t-and-unrelated-y",
+    "href": "index.html#example-single-eqtl-t-and-unrelated-y",
+    "title": "",
+    "section": "Example: Single eQTL T and unrelated Y",
+    "text": "Example: Single eQTL T and unrelated Y\n\n\n\\(\\beta = 0~~~~~~~~~~~~~~~~~~~~~~~~ \\text{i.e. } T \\text{  is unrelated to } Y\\)\n\\(Y = \\sum_k X_k ~\\delta_k + \\epsilon ~~~~~ \\text{we assume fully polygenic } Y\\)\n\n\\(T = X_1\\)\n\n\n\nwhat will happen if we regress \\(Y\\) on \\(T\\)?\n\\(T\\) will capture the association between \\(X_1\\) and \\(Y\\)\nfor small sample sizes, the effect could be negligible but with biobank-scale data, the association will be significant\nis this a problem?\nwe can show that \\(E\\chi^2 = 1 + \\frac{N h^2}{M}\\)"
+  },
+  {
+    "objectID": "index.html#example-single-eqtl-t-and-unrelated-y-1",
+    "href": "index.html#example-single-eqtl-t-and-unrelated-y-1",
+    "title": "",
+    "section": "Example: Single eQTL T and unrelated Y",
+    "text": "Example: Single eQTL T and unrelated Y"
+  },
+  {
+    "objectID": "index.html#we-can-do-the-math-in-more-general-case",
+    "href": "index.html#we-can-do-the-math-in-more-general-case",
+    "title": "",
+    "section": "We can do the math in more general case",
+    "text": "We can do the math in more general case\n\n\n\\(\\hat\\beta\\)\n\\(\\text{var}(\\hat\\beta)\\)\n\\(Z\\)\n\\(\\chi^2 = Z^2\\)\n\n\n\n\n\\[E~\\chi^2_\\text{twas} \\approx 1  + N ~h^2_\\delta ~ \\Phi(\\text{gene})\\]\n\n\n\n\\(N ~h^2_\\delta ~ \\Phi(\\text{gene})\\) is noncentrality parameter\n\\(N\\) is the sample size of the GWAS\n\\(h^2_\\delta\\) is the heritability of \\(Y\\)"
+  },
+  {
+    "objectID": "index.html#lets-compare-central-to-noncentral-χ2-distributions",
+    "href": "index.html#lets-compare-central-to-noncentral-χ2-distributions",
+    "title": "",
+    "section": "Let’s compare central to noncentral χ2 distributions",
+    "text": "Let’s compare central to noncentral χ2 distributions"
+  },
+  {
+    "objectID": "index.html#what-does-the-inflation-factor-phi-look-like",
+    "href": "index.html#what-does-the-inflation-factor-phi-look-like",
+    "title": "",
+    "section": "What does the inflation factor \\(\\Phi\\) look like",
+    "text": "What does the inflation factor \\(\\Phi\\) look like\n\n\n\\(\\Phi_\\text =  \\frac{\\tilde\\gamma' \\cdot \\Sigma^2 \\cdot \\tilde\\gamma}{\\tilde\\gamma' \\cdot \\Sigma \\cdot \\tilde\\gamma} \\frac{1}{M}\\)\n\\(\\frac{1}{M} \\le \\Phi \\le 1\\)\nlower bound attained when SNPs are independent\nupper bound attained when SNPs are perfectly correlated\n\\(\\Phi = \\frac{\\text{tr}(\\Sigma^2)}{M^2}\\) if mediator is also polygenic"
+  },
+  {
+    "objectID": "index.html#simulated-null-χ2-vs-theoretical",
+    "href": "index.html#simulated-null-χ2-vs-theoretical",
+    "title": "",
+    "section": "Simulated Null χ2 vs theoretical",
+    "text": "Simulated Null χ2 vs theoretical\n\n\n\n\n \n\\[E~\\chi^2_\\text{twas} \\approx 1  + N ~h^2_\\delta ~ \\Phi(\\text{gene})\\]"
+  },
+  {
+    "objectID": "index.html#null-twas-χ2-vs-theoretical",
+    "href": "index.html#null-twas-χ2-vs-theoretical",
+    "title": "",
+    "section": "Null TWAS χ2 vs theoretical",
+    "text": "Null TWAS χ2 vs theoretical\n\n\n\n\nUK Biobank genotype, null phenotype \\(Y\\), and predicted gene expression\n\\[E~\\chi^2_\\text{twas} \\approx 1  + N ~h^2_\\delta ~ \\Phi(\\text{gene})\\]"
+  },
+  {
+    "objectID": "index.html#polygenic-target-trait-y-noisy-mediator",
+    "href": "index.html#polygenic-target-trait-y-noisy-mediator",
+    "title": "",
+    "section": "Polygenic Target Trait Y & Noisy Mediator",
+    "text": "Polygenic Target Trait Y & Noisy Mediator\n\\[\\begin{align}\n  Y &= \\beta \\cdot T + \\sum_k X_k \\cdot \\delta_k + \\epsilon \\\\\n  T &= \\sum_k \\gamma_k \\cdot X_k \\\\\n  \\tilde{T} &= \\sum_k (\\gamma_k + e_{\\gamma,k}) \\cdot X_k\n\\end{align}\n\\]\n \n\\[E~\\chi^2_\\text{twas} \\approx 1  + N ~h^2_\\delta ~ \\Phi(\\text{gene})\\]"
+  },
+  {
+    "objectID": "index.html#twas-χ2-statistic-with-polygenic-y-noisy-mediator",
+    "href": "index.html#twas-χ2-statistic-with-polygenic-y-noisy-mediator",
+    "title": "",
+    "section": "TWAS χ2 Statistic with Polygenic Y & Noisy Mediator",
+    "text": "TWAS χ2 Statistic with Polygenic Y & Noisy Mediator\n\\[E~\\chi^2_\\text{twas} \\approx 1  + N ~h^2_\\delta ~ \\frac{\\Phi(\\text{gene})}{1 - \\beta^2\\tau^2} +  N ~ \\frac{\\beta^2 }{1 - \\beta^2\\tau^2}~\\tau^2\\]\n\\[\\tau^2 = \\text{signal to noise ratio}\\] \\[ = \\text{precision} = \\frac{\\text{var}(T)}{\\text{var}(\\tilde{T})}\\]"
+  },
+  {
+    "objectID": "index.html#alternative-χ2-with-polygenic-y-and-noisy-mediator",
+    "href": "index.html#alternative-χ2-with-polygenic-y-and-noisy-mediator",
+    "title": "",
+    "section": "Alternative χ2 with Polygenic Y and Noisy Mediator",
+    "text": "Alternative χ2 with Polygenic Y and Noisy Mediator"
+  },
+  {
+    "objectID": "index.html#dependence-on-precision-of-predictor",
+    "href": "index.html#dependence-on-precision-of-predictor",
+    "title": "",
+    "section": "Dependence on Precision of Predictor",
+    "text": "Dependence on Precision of Predictor"
+  },
+  {
+    "objectID": "index.html#how-to-correct-the-inflation",
+    "href": "index.html#how-to-correct-the-inflation",
+    "title": "",
+    "section": "How to Correct the Inflation",
+    "text": "How to Correct the Inflation\n\n\nCalculate the non centrality parameter\nUse noncentral χ2 to compute p-values\n\\(\\texttt{pchisq(chi2, ncp=N*h2Y*phi, df=1, lower.tail=FALSE)}\\)"
+  },
+  {
+    "objectID": "index.html#estimated-factor-φ-for-genes-metabolites-brain-features",
+    "href": "index.html#estimated-factor-φ-for-genes-metabolites-brain-features",
+    "title": "",
+    "section": "Estimated Factor Φ for Genes, Metabolites, Brain Features",
+    "text": "Estimated Factor Φ for Genes, Metabolites, Brain Features"
+  },
+  {
+    "objectID": "index.html#take-home-message-1",
+    "href": "index.html#take-home-message-1",
+    "title": "",
+    "section": "Take home message",
+    "text": "Take home message\n\n\nStandard TWAS can yield inflated p-values\nThe χ2 statistic is noncentral\nNCP is linear in sample size\nNCP is linear in the heritability of Y\n\\(\\Phi\\) is a function of the mediator and can be estimated using mediator prediction weights\nInflation can be corrected by simply using the noncentral χ2 distribution when calculating the p-values"
+  }
+]
