@@ -142,18 +142,23 @@ it uses genetic predictors of omic traits to bridge the gap between genotype and
 ## Leeuw et al questioned the validity of TWAS  {background-image=assets/slide-background.svg}
 
 :::{.columns}
-:::{.column width=75%}
+
+:::{.column width=70%}
+
 ![](assets/leeuws-twas-validity.png)
 
 :::
 
 :::{.column width=30%}
 
-
-- Leewu et al claim that noise in predictors cause inflation of TWAS
+<br>
+<br>
+<br>
+Leewu et al claim that noise in predictors cause inflation of TWAS
 
 :::
 
+:::
 
 <!-- ## Why should we worry about inflation? {background-image=assets/slide-background.svg} -->
 
