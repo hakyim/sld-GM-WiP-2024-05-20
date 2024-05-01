@@ -28,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="theme/theme.css">
@@ -326,56 +391,54 @@
     <div class="slides">
 
 
+<section>
 <section id="on-the-problem-of-inflation-in-twas" class="title-slide slide level1 center" data-background-color="white">
 <h1>On the Problem of Inflation in TWAS</h1>
 <p><br></p>
 <h2>
-PCB Presentation
+STATGEN 2024, Pittsburgh
 </h2>
+<!-- <h4>Session: Identification of causal molecular phenotypes underlying complex diseases using multi-omics QTL data</h4> -->
 <h3>
-2023-04-26 Friday
+2023-05-01 Wednesday
 </h3>
 <h3>
 Hae Kyung Im
 </h3>
 </section>
-
-<section>
-<section id="review-of-twas" class="title-slide slide level1 center" data-background-color="white">
-<h1>Review of TWAS</h1>
-
+<section id="what-is-twas" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>What is TWAS?</h2>
+<div class="fragment">
+<p><br> It’s a method that tries to identify causal genes of GWAS loci</p>
+</div>
+<div class="fragment">
+<p><br> GWAS discoveries continue to grow but causal genes are not known</p>
+<p><img data-src="assets/gwas-catalog-2024-04-10.png" style="width:50.0%"></p>
+<p><small>downloaded April 2024 from GWAS Catalog </small></p>
+</div>
 </section>
-<section id="gwas-continues-to-discover-more-loci" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
-<h2>GWAS Continues to Discover more Loci</h2>
-<p><img data-src="assets/gwas-catalog-2024-04-10.png" style="width:70.0%"></p>
-
-<aside><div>
-<p>downloaded April 2024</p>
-</div></aside></section>
-<section id="mostly-noncoding-so-mechanism-not-well-known" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>Mostly noncoding so mechanism not well known</h2>
+<section id="twas-uses-gwas-data-to-find-genes-associated-with-trait" class="slide level2" data-background-image="assets/slide-background.svg">
+<h2>TWAS uses GWAS data to find genes associated with trait</h2>
 <p><img data-src="assets/gwas-predixcan-diagram.png" width="1200"></p>
 <div class="absolute fragment fade-out" style="left: 0px; bottom: 0px; ">
 <p><img data-src="assets/blank-rectangle.png" alt="blank" width="1600" height="380"></p>
 </div>
-<div class="absolute fragment fade-in" style="left: 1200px; bottom: 200px; ">
-<div class="fragment fade-out">
-<ul>
-<li>RNA-Seq is too expensive</li>
-<li>Many tissues such has brain, pancreas, etc are not accessible</li>
-<li>Differentially expressed genes can be consequence of disease status</li>
-</ul>
-</div>
-</div>
-<div class="absolute fragment fade-out" style="left: 0px; bottom: 0px; ">
-<p><img data-src="assets/blank-rectangle.png" alt="blank" width="370" height="440"></p>
-</div>
-<div class="absolute fragment fade-out" style="left: 360px; bottom: 260px; ">
-<p><img data-src="assets/blank-rectangle.png" alt="blank" width="110" height="30"></p>
-</div>
-<div class="absolute fragment fade-out" style="left: 720px; bottom: 210px; ">
-<p><img data-src="assets/blank-rectangle.png" alt="blank" width="210" height="50"></p>
-</div>
+<!-- :::{.absolute bottom=200 left=1200 .fragment .fade-in} -->
+<!-- :::{.fragment .fade-out} -->
+<!-- - RNA-Seq is too expensive -->
+<!-- - Many tissues such has brain, pancreas, etc are not accessible -->
+<!-- - Differentially expressed genes can be consequence of disease status -->
+<!-- ::: -->
+<!-- ::: -->
+<!-- ::: {.absolute bottom=0 left=0 .fragment .fade-out} -->
+<!-- ![](assets/blank-rectangle.png){width="370" height="440" fig-alt="blank"} -->
+<!-- ::: -->
+<!-- ::: {.absolute bottom=260 left=360 .fragment .fade-out} -->
+<!-- ![](assets/blank-rectangle.png){width="110" height="30" fig-alt="blank"} -->
+<!-- ::: -->
+<!-- ::: {.absolute bottom=210 left=720 .fragment .fade-out} -->
+<!-- ![](assets/blank-rectangle.png){width="210" height="50" fig-alt="blank"} -->
+<!-- ::: -->
 </section>
 <section id="gene-expression-can-be-predicted-from-genotype" class="slide level2" data-background-image="assets/slide-background.svg">
 <h2>Gene expression can be predicted from genotype</h2>
@@ -389,218 +452,213 @@ Hae Kyung Im
 <h2>Accuracy of prediction depends on heritability</h2>
 <p><img data-src="assets/performance-all-genes.png" style="width:75.0%"></p>
 </section>
-<section id="advantages-of-gene-level-associations" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>Advantages of gene level associations</h2>
-<ul>
-<li>Reduced multiple testing burden (from 10e6 to 10e4)</li>
-<li>The function of genes are much better annotated than SNPs</li>
-<li>Validation in other model systems is possible</li>
-<li>Reverse causality issues is less problematic because disease status doesn’t affect germline genetic markers</li>
-<li>It provides the direction of effects, i.e.&nbsp;whether up or down regulation of a gene - increases the risk of a disease</li>
-<li>The candidate causal gene is a good target for drug development</li>
-</ul>
+
+
+
+
+<section id="twas-extensions-are-actively-being-developed" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>TWAS extensions are actively being developed</h2>
+<p><img data-src="assets/omnixcan.png" style="width:80.0%"></p>
+<div class="fragment">
+<p>it uses genetic predictors of omic traits to bridge the gap between genotype and phenotype</p>
+</div>
 </section>
-<section id="predixcan-results-identify-drug-repositioning-candidates" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
-<h2>PrediXcan results identify drug repositioning candidates</h2>
-<p><img data-src="assets/so-drug-repurposing.png" style="width:75.0%"></p>
+<section id="leeuw-et-al-questioned-the-validity-of-twas" class="slide level2" data-background-image="assets/slide-background.svg">
+<h2>Leeuw et al questioned the validity of TWAS</h2>
 
-<aside><div>
-<p>So et al, Nature Neuroscience 2017</p>
-</div></aside></section>
-<section id="predixcan-results-are-predictive-of-drug-target-success" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>PrediXcan Results Are Predictive of Drug Target Success</h2>
-
-<img data-src="assets/successful-drugs-higher-twas-signal.png" class="r-stretch"></section>
-<section id="limitations-of-twas" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>Limitations of TWAS</h2>
+<!-- ## Why should we worry about inflation? {background-image=assets/slide-background.svg} -->
+<!-- . . . -->
+<!-- <br> -->
+<!-- <br> -->
+<!-- <center> -->
+<!-- because none of the *WAS results would be valid -->
+<!-- </center> -->
+<!-- ## Hey, type I error is important but I care more about power  {background-image=assets/slide-background.svg} -->
+<!-- . . . -->
+<!-- <br> -->
+<!-- <br> -->
+<!-- <center> A reviewer actually wrote this </center> -->
+<!-- . . . -->
+<!-- <br>  -->
+<!-- <br>  -->
+<!-- <center> We will offer them a magical test with 100% power -->
+<!-- <br>  -->
+<!-- <br>  -->
+<!-- just reject the null every time </center> -->
+<img data-src="assets/leeuws-twas-validity.png" style="width:75.0%" class="r-stretch"></section>
+<section id="check-inflation-via-simulations" class="slide level2" data-background-image="assets/slide-background.svg">
+<h2>Check inflation via simulations</h2>
 <div class="columns">
-<div class="column" style="width:75%;">
-<ul>
-<li>Not very good at predicting low heritability genes which are more likely to be disease relevant</li>
-<li>Predictions don’t transfer well across ancestries</li>
-<li>Effect of rare variation is missed</li>
-<li>Steady state eQTL may not be disease relevant</li>
-</ul>
-</div>
-</div>
-</section></section>
-<section>
-<section id="is-there-inflation-in-twas" class="title-slide slide level1 center" data-background-color="white">
-<h1>Is there inflation in TWAS?</h1>
+<div class="column" style="width:40%;">
+<p><br> TWAS model <br></p>
+<p><span class="math display">\[\begin{align*}
+Y &amp;= \beta ~ T +  \epsilon_\text{twas} \\
 
+T &amp;= \sum_k \gamma_k ~ X_k \quad \epsilon_\text{twas} \perp\!\!\!\perp T
+\end{align*}\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>beta <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>N <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>M <span class="ot">=</span> <span class="dv">999</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>maf<span class="ot">=</span><span class="fl">0.4</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>etwas <span class="ot">=</span> <span class="fu">rnorm</span>(N)</span>
+<span id="cb1-6"><a href="#cb1-6"></a>gamma <span class="ot">=</span> <span class="fu">rnorm</span>(M)</span>
+<span id="cb1-7"><a href="#cb1-7"></a>X <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">rbinom</span>(N<span class="sc">*</span>M,<span class="dv">2</span>,maf),N,M)</span>
+<span id="cb1-8"><a href="#cb1-8"></a>T <span class="ot">=</span> X <span class="sc">%*%</span> gamma </span>
+<span id="cb1-9"><a href="#cb1-9"></a>Y <span class="ot">=</span> beta <span class="sc">*</span> T <span class="sc">+</span> etwas</span>
+<span id="cb1-10"><a href="#cb1-10"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(Y <span class="sc">~</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="fragment">
+<p>let’s simulate the regression 1000 times <br></p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-1-1.png" width="960"></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>No inflation</p>
+</div>
+</div>
+</div>
 </section>
-<section id="leeuw-et-al-report-2023-inflation-in-twas" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>Leeuw et al report (2023) inflation in TWAS</h2>
-
-<img data-src="assets/leeuws-twas-inflation.png" style="width:75.0%" class="r-stretch"></section>
-<section id="leeuw-et-als-flawed-twas-null-hypothesis" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>Leeuw et al’s Flawed TWAS Null Hypothesis</h2>
+<section id="what-if-we-use-a-noisy-predictor" class="slide level2" data-background-image="assets/slide-background.svg">
+<h2>What if we use a noisy predictor?</h2>
 <div class="columns">
-<div class="column" style="width:90%;">
-<p><span class="math display">\[  Y = \beta ~ G_E +  \epsilon_\text{twas} \]</span> <span class="math display">\[  G_E = \sum_k \gamma_k ~ X_k \]</span></p>
-<p><img data-src="assets/leeuws-null-hypothesis.png" style="width:100.0%"></p>
-</div>
-</div>
-</section>
-<section id="what-is-wrong-with-leeuw-et-als-reformulated-hypothesis" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>What is wrong with Leeuw et al’s reformulated hypothesis?</h2>
-<p><br></p>
-<p><span class="math display">\[H_0\!:~ \text{cov}(\hat{G}_E, Y)  = 0\]</span></p>
-</section>
-<section id="what-is-wrong-with-leeuw-et-als-reformulated-hypothesis-1" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>What is wrong with Leeuw et al’s reformulated hypothesis?</h2>
-<p><br></p>
-<p><span class="math display">\[H_0\!:~~~~ \hat\beta  ~~~~~~ = 0\]</span></p>
-</section>
-<section id="take-home-message" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>Take home message</h2>
-<p><br> <br></p>
-<div class="r-fit-text">
-<p>Never equate random variables with fixed variables</p>
-</div>
-</section>
-<section id="leeuws-et-al-claim-that-error-in-variable-causes-inflation" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>Leeuws et al claim that error in variable causes inflation</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p>We want to regress <span class="math inline">\(Y\)</span> on <span class="math inline">\(T\)</span> <span class="math display">\[  Y = \beta ~ T +  \epsilon_\text{twas} \]</span></p>
-<p><span class="math display">\[  T = \sum_k \gamma_k ~ X_k \]</span></p>
-<p>But we only have the noisy version of <span class="math inline">\(T\)</span>, <span class="math inline">\(\tilde{T} = \sum_k \tilde{\gamma}_k ~ X_k\)</span> and we end up regressing <span class="math inline">\(Y\)</span> on <span class="math inline">\(\tilde{T}\)</span></p>
-<p><br></p>
-<p><span class="math display">\[  Y = \beta ~ \tilde{T} +  \tilde\epsilon \]</span></p>
-<p><span class="math display">\[  \tilde{T} = \sum_k \tilde{\gamma}_k ~ X_k \]</span></p>
-</div>
-</div>
-</section>
-<section id="but-error-in-variables-literature-contradicts-that-claim" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>But error in variables literature contradicts that claim</h2>
-<p><br> <br></p>
-<ol type="1">
-<li>No inflation when using noisy explanatory variables</li>
-</ol>
-<p><br></p>
-<ol start="2" type="1">
-<li>There is attenuation bias <span class="math display">\[| E \hat\beta | &lt; |\beta|\]</span></li>
-</ol>
+<div class="column" style="width:40%;">
+<p><br> TWAS model <br></p>
+<p><span class="math display">\[\begin{align*}
+Y &amp;= \beta ~ T +  \epsilon_\text{twas} \\
 
-<aside><div>
-<p>Fuller, Wayne, Measurement Error Models. 1987, John Wiley &amp; Sons</p>
-</div></aside></section></section>
-<section>
-<section id="but-their-simulations-did-show-inflation" class="title-slide slide level1 center" data-background-color="white">
-<h1>But their simulations did show inflation</h1>
+T &amp;= \sum_k (\gamma_k + e) ~ X_k \\
 
+e &amp;\perp\!\!\!\perp Y \quad \epsilon_\text{twas} \perp\!\!\!\perp T
+\end{align*}\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>beta <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>N <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>M <span class="ot">=</span> <span class="dv">999</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>maf<span class="ot">=</span><span class="fl">0.4</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>etwas <span class="ot">=</span> <span class="fu">rnorm</span>(N)</span>
+<span id="cb2-6"><a href="#cb2-6"></a>gamma <span class="ot">=</span> <span class="fu">rnorm</span>(M)</span>
+<span id="cb2-7"><a href="#cb2-7"></a>e <span class="ot">=</span> <span class="fu">rnorm</span>(M)</span>
+<span id="cb2-8"><a href="#cb2-8"></a>X <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">rbinom</span>(N<span class="sc">*</span>M,<span class="dv">2</span>,maf),N,M)</span>
+<span id="cb2-9"><a href="#cb2-9"></a>T <span class="ot">=</span> X <span class="sc">%*%</span> (gamma <span class="sc">+</span> e)</span>
+<span id="cb2-10"><a href="#cb2-10"></a>Y <span class="ot">=</span> beta <span class="sc">*</span> T <span class="sc">+</span> etwas</span>
+<span id="cb2-11"><a href="#cb2-11"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(Y <span class="sc">~</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="fragment">
+<p>let’s simulate the regression 1000 times <br></p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>No inflation</p>
+</div>
+<div class="fragment">
+<p>if error in T is independent of Y,</p>
+<p>there is no reason to see inflation</p>
+</div>
+</div>
+</div>
+</section>
+<section id="leeuw-et-als-reformulated-null-hypothesis" class="slide level2" data-background-image="assets/slide-background.svg">
+<h2>Leeuw et al’s “reformulated null hypothesis”</h2>
+<p><span class="math display">\[  Y = \beta ~ T +  \epsilon_\text{twas} \]</span> <span class="math display">\[  T = \sum_k \gamma_k ~ X_k \]</span></p>
+<p><span class="math display">\[H_0\!:~ \beta = 0\]</span></p>
+<div class="fragment">
+<p>Leeuw et al claim that this is equivalent to</p>
+<p><span class="math display">\[H_0\!:~ \hat\beta  = 0\]</span></p>
+</div>
+<div class="fragment">
+<p>This is not hypothesis testing is done. {<span class="math inline">\(\hat\beta=0\)</span>} is an event with probability 0.</p>
+</div>
+<div class="fragment">
+<p>Premise is wrong, and the conclusion is wrong</p>
+<p>We can dismiss the report that error in prediction invalidates *WAS</p>
+</div>
 </section>
 <section id="joint-work-with" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
 <h2>Joint work with</h2>
 <p><img data-src="assets/yanyu-and-festus.png" style="width:65.0%"></p>
 </section>
-<section id="twas-model" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>TWAS Model</h2>
+<section id="lets-revisit-the-simulation-using-polygenic-y" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>Let’s revisit the simulation using polygenic Y</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
 <p><span class="math display">\[\begin{align*}
-  Y &amp;= \beta ~ T +  \epsilon_\text{twas} \\
-  T &amp;= \sum_k \gamma_k ~ X_k
-\end{align*}\]</span></p>
-<p><br></p>
-<p>What happens if <span class="math inline">\(Y\)</span> has a polygenic component? <span class="math display">\[ \epsilon_\text{twas} = \sum_k X_k  ~\delta_k + \epsilon \]</span></p>
-</section>
-<section id="example-single-eqtl-t-and-unrelated-y" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>Example: Single eQTL T and unrelated Y</h2>
-<div>
-<ul>
-<li class="fragment"><p><span class="math inline">\(\beta = 0~~~~~~~~~~~~~~~~~~~~~~~~ \text{i.e. } T \text{  is unrelated to } Y\)</span></p></li>
-<li class="fragment"><p><span class="math inline">\(Y = \sum_k X_k ~\delta_k + \epsilon ~~~~~ \text{we assume fully polygenic } Y\)</span><br>
-</p></li>
-<li class="fragment"><p><span class="math inline">\(T = X_1\)</span></p></li>
-</ul>
-<p><br></p>
-<ul>
-<li class="fragment"><p>what will happen if we regress <span class="math inline">\(Y\)</span> on <span class="math inline">\(T\)</span>?</p></li>
-<li class="fragment"><p><span class="math inline">\(T\)</span> will capture the association between <span class="math inline">\(X_1\)</span> and <span class="math inline">\(Y\)</span></p></li>
-<li class="fragment"><p>for small sample sizes, the effect could be negligible but with biobank-scale data, the association will be significant</p></li>
-<li class="fragment"><p>is this a problem?</p></li>
-<li class="fragment"><p>we can show that <span class="math inline">\(E\chi^2 = 1 + \frac{N h^2}{M}\)</span></p></li>
-</ul>
-</div>
-</section>
-<section id="example-single-eqtl-t-and-unrelated-y-1" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>Example: Single eQTL T and unrelated Y</h2>
 
-<img data-src="assets/single-eqtl-example.png" class="r-stretch"></section>
-<section id="we-can-do-the-math-in-more-general-case" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>We can do the math in more general case</h2>
-<div>
-<ul>
-<li class="fragment"><span class="math inline">\(\hat\beta\)</span></li>
-<li class="fragment"><span class="math inline">\(\text{var}(\hat\beta)\)</span></li>
-<li class="fragment"><span class="math inline">\(Z\)</span></li>
-<li class="fragment"><span class="math inline">\(\chi^2 = Z^2\)</span></li>
-</ul>
-<p><br></p>
+Y &amp;= \beta ~ T + \epsilon_\text{twas}\\
+
+\epsilon_\text{twas} &amp;= \sum_k X_k ~ \delta_k + \epsilon \\
+
+T &amp;= \sum_k \gamma_k ~ X_k \\
+
+\epsilon, ~\gamma,~ \delta &amp;  \perp\!\!\!\perp ~ \therefore ~ T \perp\!\!\!\perp \epsilon_\text{twas}
+
+
+\end{align*}\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>beta <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>N <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>M <span class="ot">=</span> <span class="dv">999</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>maf<span class="ot">=</span><span class="fl">0.4</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>etwas <span class="ot">=</span> <span class="fu">rnorm</span>(N)</span>
+<span id="cb3-6"><a href="#cb3-6"></a>gamma <span class="ot">=</span> <span class="fu">rnorm</span>(M)</span>
+<span id="cb3-7"><a href="#cb3-7"></a>delta <span class="ot">=</span> <span class="fu">rnorm</span>(M)</span>
+<span id="cb3-8"><a href="#cb3-8"></a>X <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">rbinom</span>(N<span class="sc">*</span>M,<span class="dv">2</span>,maf),N,M)</span>
+<span id="cb3-9"><a href="#cb3-9"></a>T <span class="ot">=</span> X <span class="sc">%*%</span> gamma </span>
+<span id="cb3-10"><a href="#cb3-10"></a>Y <span class="ot">=</span> beta <span class="sc">*</span> T <span class="sc">+</span> X <span class="sc">%*%</span> delta <span class="sc">+</span> etwas</span>
+<span id="cb3-11"><a href="#cb3-11"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(Y <span class="sc">~</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
+</div>
+</div>
 </div>
 <div class="fragment">
-<p><span class="math display">\[E~\chi^2_\text{twas} \approx 1  + N ~h^2_\delta ~ \Phi(\text{gene})\]</span></p>
+<p>Now we do see inflation</p>
 </div>
-<div>
-<ul>
-<li class="fragment"><span class="math inline">\(N ~h^2_\delta ~ \Phi(\text{gene})\)</span> is noncentrality parameter</li>
-<li class="fragment"><span class="math inline">\(N\)</span> is the sample size of the GWAS</li>
-<li class="fragment"><span class="math inline">\(h^2_\delta\)</span> is the heritability of <span class="math inline">\(Y\)</span></li>
-</ul>
+</div>
 </div>
 </section>
-<section id="lets-compare-central-to-noncentral-χ2-distributions" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>Let’s compare central to noncentral χ2 distributions</h2>
+<section id="how-does-inflation-vary-with-sample-size" class="slide level2" data-background-image="assets/slide-background.svg">
+<h2>How does inflation vary with sample size?</h2>
 
-<img data-src="assets/central-vs-noncentral-chi2.png" class="r-stretch"></section>
-<section id="what-does-the-inflation-factor-phi-look-like" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>What does the inflation factor <span class="math inline">\(\Phi\)</span> look like</h2>
+<img data-src="assets/twas-null-echi2-vs-nsam.png" class="r-stretch"></section>
+<section id="how-does-inflation-vary-with-heritability-of-y" class="slide level2" data-background-image="assets/slide-background.svg">
+<h2>How does inflation vary with heritability of Y?</h2>
+
+<img data-src="assets/twas-null-echi2-vs-h2.png" class="r-stretch"></section>
+<section id="how-does-inflation-vary-with-the-number-of-snps" class="slide level2" data-background-image="assets/slide-background.svg">
+<h2>How does inflation vary with the number of SNPs?</h2>
+
+<img data-src="assets/twas-null-echi2-vs-msnp.png" class="r-stretch"></section>
+<section id="what-does-the-inflation-look-like" class="slide level2" data-background-image="assets/slide-background.svg">
+<h2>What does the inflation look like</h2>
+<p><span class="math display">\[ E \chi^2 \propto N h^2 \frac{1}{M} ?\]</span></p>
 <div>
 <ul>
-<li class="fragment"><p><span class="math inline">\(\Phi_\text =  \frac{\tilde\gamma' \cdot \Sigma^2 \cdot \tilde\gamma}{\tilde\gamma' \cdot \Sigma \cdot \tilde\gamma} \frac{1}{M}\)</span></p></li>
-<li class="fragment"><p><span class="math inline">\(\frac{1}{M} \le \Phi \le 1\)</span></p></li>
-<li class="fragment"><p>lower bound attained when SNPs are independent</p></li>
-<li class="fragment"><p>upper bound attained when SNPs are perfectly correlated</p></li>
-<li class="fragment"><p><span class="math inline">\(\Phi = \frac{\text{tr}(\Sigma^2)}{M^2}\)</span> if mediator is also polygenic</p></li>
+<li class="fragment"><p>if we do the math, we get <span class="math display">\[ E \chi^2 \approx
+1 +  N ~ h^2 ~\frac{\tilde\gamma' \cdot \Sigma^2  \cdot \tilde\gamma}{\tilde\gamma' \cdot  \Sigma  \cdot \tilde\gamma} \frac{1}{M} \]</span></p></li>
+<li class="fragment"><p>we define the inflation factor <span class="math inline">\(\Phi\)</span> as <span class="math display">\[ \Phi  = \frac{\tilde\gamma' \cdot \Sigma^2  \cdot \tilde\gamma}{\tilde\gamma' \cdot  \Sigma  \cdot \tilde\gamma} \frac{1}{M} \]</span></p></li>
+<li class="fragment"><p>when SNPs are independent <span class="math inline">\(\Phi = \frac{1}{M}\)</span> we get the expression we guessed <span class="math inline">\(E \chi^2 = 1 + N h^2 \frac{1}{M}\)</span></p></li>
 </ul>
 </div>
 </section>
-<section id="simulated-null-χ2-vs-theoretical" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>Simulated Null χ2 vs theoretical</h2>
-<div class="columns">
-<div class="column" style="width:70%;">
-<p><img data-src="assets/simulated-null-chi2-vs-prediction.png"></p>
-</div><div class="column" style="width:30%;">
-<p><br> <br></p>
-<p><span class="math display">\[E~\chi^2_\text{twas} \approx 1  + N ~h^2_\delta ~ \Phi(\text{gene})\]</span></p>
-</div>
-</div>
-</section>
-<section id="null-twas-χ2-vs-theoretical" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>Null TWAS χ2 vs theoretical</h2>
-<div class="columns">
-<div class="column" style="width:70%;">
-<p><img data-src="assets/null-twas-chi2.png"></p>
-</div><div class="column" style="width:30%;">
-<p>UK Biobank genotype, null phenotype <span class="math inline">\(Y\)</span>, and predicted gene expression</p>
-<p><span class="math display">\[E~\chi^2_\text{twas} \approx 1  + N ~h^2_\delta ~ \Phi(\text{gene})\]</span></p>
-</div>
-</div>
-</section>
-<section id="polygenic-target-trait-y-noisy-mediator" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>Polygenic Target Trait Y &amp; Noisy Mediator</h2>
-<p><span class="math display">\[\begin{align}
-  Y &amp;= \beta \cdot T + \sum_k X_k \cdot \delta_k + \epsilon \\
-  T &amp;= \sum_k \gamma_k \cdot X_k \\
-  \tilde{T} &amp;= \sum_k (\gamma_k + e_{\gamma,k}) \cdot X_k
-\end{align}
-\]</span></p>
-<p><br> <br></p>
-<p><span class="math display">\[E~\chi^2_\text{twas} \approx 1  + N ~h^2_\delta ~ \Phi(\text{gene})\]</span></p>
-</section>
-<section id="twas-χ2-statistic-with-polygenic-y-noisy-mediator" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>TWAS χ2 Statistic with Polygenic Y &amp; Noisy Mediator</h2>
-<p><span class="math display">\[E~\chi^2_\text{twas} \approx 1  + N ~h^2_\delta ~ \frac{\Phi(\text{gene})}{1 - \beta^2\tau^2} +  N ~ \frac{\beta^2 }{1 - \beta^2\tau^2}~\tau^2\]</span></p>
+
+<section id="we-can-derive-a-more-general-expression" class="slide level2" data-background-image="assets/slide-background.svg">
+<h2>We can derive a more general expression</h2>
+<p>for the TWAS χ2 Statistic with Polygenic Y &amp; Noisy Mediator</p>
+<p><span class="math display">\[E~\chi^2_\text{twas} \approx 1  + N ~h^2_\delta ~ \frac{\Phi(\text{gene})}{1 - \beta^2\tau^2} +  N ~ \frac{\beta^2 }{1 - \beta^2\tau^2}~\tau^2\]</span> where</p>
 <p><span class="math display">\[\tau^2 = \text{signal to noise ratio}\]</span> <span class="math display">\[ = \text{precision} = \frac{\text{var}(T)}{\text{var}(\tilde{T})}\]</span></p>
 </section>
 <section id="alternative-χ2-with-polygenic-y-and-noisy-mediator" class="slide level2" data-background-image="assets/slide-background.svg">
@@ -625,16 +683,15 @@ Hae Kyung Im
 <h2>Estimated Factor Φ for Genes, Metabolites, Brain Features</h2>
 
 <img data-src="assets/phi-distribution.png" class="r-stretch"></section>
-<section id="take-home-message-1" class="slide level2" data-background-image="assets/slide-background.svg">
+<section id="take-home-message" class="slide level2" data-background-image="assets/slide-background.svg">
 <h2>Take home message</h2>
+<p><br></p>
 <div>
 <ul>
-<li class="fragment">Standard TWAS can yield inflated p-values</li>
-<li class="fragment">The χ2 statistic is noncentral</li>
-<li class="fragment">NCP is linear in sample size</li>
-<li class="fragment">NCP is linear in the heritability of Y</li>
-<li class="fragment"><span class="math inline">\(\Phi\)</span> is a function of the mediator and can be estimated using mediator prediction weights</li>
+<li class="fragment">Standard TWAS can yield inflated p-values when the trait is highly polygenic</li>
 <li class="fragment">Inflation can be corrected by simply using the noncentral χ2 distribution when calculating the p-values</li>
+<li class="fragment">Error in prediction does not cause inflation (under reasonable assumptions)</li>
+<li class="fragment">Noisy predictors can be used which will reduce false negatives, as long as the type I error is controlled</li>
 </ul>
 </div>
 
@@ -853,6 +910,44 @@ Hae Kyung Im
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

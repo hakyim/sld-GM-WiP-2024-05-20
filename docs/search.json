@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "index.html#what-is-twas",
+    "href": "index.html#what-is-twas",
+    "title": "",
+    "section": "What is TWAS?",
+    "text": "What is TWAS?\n\n It’s a method that tries to identify causal genes of GWAS loci\n\n\n GWAS discoveries continue to grow but causal genes are not known\n\ndownloaded April 2024 from GWAS Catalog"
+  },
+  {
     "objectID": "index.html#gwas-continues-to-discover-more-loci",
     "href": "index.html#gwas-continues-to-discover-more-loci",
     "title": "",
@@ -11,7 +18,7 @@
     "href": "index.html#mostly-noncoding-so-mechanism-not-well-known",
     "title": "",
     "section": "Mostly noncoding so mechanism not well known",
-    "text": "Mostly noncoding so mechanism not well known\n\n\n\n\n\n\n\nRNA-Seq is too expensive\nMany tissues such has brain, pancreas, etc are not accessible\nDifferentially expressed genes can be consequence of disease status"
+    "text": "Mostly noncoding so mechanism not well known"
   },
   {
     "objectID": "index.html#gene-expression-can-be-predicted-from-genotype",
@@ -56,11 +63,11 @@
     "text": "PrediXcan Results Are Predictive of Drug Target Success"
   },
   {
-    "objectID": "index.html#limitations-of-twas",
-    "href": "index.html#limitations-of-twas",
+    "objectID": "index.html#extension-of-twas-to-other-mediating-traits",
+    "href": "index.html#extension-of-twas-to-other-mediating-traits",
     "title": "",
-    "section": "Limitations of TWAS",
-    "text": "Limitations of TWAS\n\n\n\nNot very good at predicting low heritability genes which are more likely to be disease relevant\nPredictions don’t transfer well across ancestries\nEffect of rare variation is missed\nSteady state eQTL may not be disease relevant"
+    "section": "Extension of TWAS to other mediating traits",
+    "text": "Extension of TWAS to other mediating traits"
   },
   {
     "objectID": "index.html#leeuw-et-al-report-2023-inflation-in-twas",
@@ -70,32 +77,46 @@
     "text": "Leeuw et al report (2023) inflation in TWAS"
   },
   {
-    "objectID": "index.html#leeuw-et-als-flawed-twas-null-hypothesis",
-    "href": "index.html#leeuw-et-als-flawed-twas-null-hypothesis",
+    "objectID": "index.html#why-should-we-worry-about-inflation",
+    "href": "index.html#why-should-we-worry-about-inflation",
     "title": "",
-    "section": "Leeuw et al’s Flawed TWAS Null Hypothesis",
-    "text": "Leeuw et al’s Flawed TWAS Null Hypothesis\n\n\n\\[  Y = \\beta ~ G_E +  \\epsilon_\\text{twas} \\] \\[  G_E = \\sum_k \\gamma_k ~ X_k \\]"
+    "section": "Why should we worry about inflation?",
+    "text": "Why should we worry about inflation?\n\n \n\nbecause none of the *WAS results would be valid"
+  },
+  {
+    "objectID": "index.html#hey-type-i-error-is-important-but-i-care-more-about-power",
+    "href": "index.html#hey-type-i-error-is-important-but-i-care-more-about-power",
+    "title": "",
+    "section": "Hey, type I error is important but I care more about power",
+    "text": "Hey, type I error is important but I care more about power\n\n \n\nA reviewer actually wrote this\n\n\n\n \n\nWe will offer them a magical test with 100% power   just reject the null every time"
+  },
+  {
+    "objectID": "index.html#check-inflation-via-simulations",
+    "href": "index.html#check-inflation-via-simulations",
+    "title": "",
+    "section": "Check inflation via simulations",
+    "text": "Check inflation via simulations\n\n\n TWAS model \n\\[\\begin{align*}\nY &= \\beta ~ T +  \\epsilon_\\text{twas} \\\\\n\nT &= \\sum_k \\gamma_k ~ X_k \\quad \\epsilon_\\text{twas} \\perp\\!\\!\\!\\perp T\n\\end{align*}\\]\n\nbeta = 0\nN = 1000\nM = 999\nmaf=0.4\netwas = rnorm(N)\ngamma = rnorm(M)\nX = matrix(rbinom(N*M,2,maf),N,M)\nT = X %*% gamma \nY = beta * T + etwas\nfit = lm(Y ~ T)\n\n\n\nlet’s simulate the regression 1000 times \n\n\n\n\n\n\n\nNo inflation"
+  },
+  {
+    "objectID": "index.html#leeuw-et-als-reformulated-null-hypothesis",
+    "href": "index.html#leeuw-et-als-reformulated-null-hypothesis",
+    "title": "",
+    "section": "Leeuw et al’s “reformulated null hypothesis”",
+    "text": "Leeuw et al’s “reformulated null hypothesis”\n\\[  Y = \\beta ~ T +  \\epsilon_\\text{twas} \\] \\[  T = \\sum_k \\gamma_k ~ X_k \\]\n\\[H_0\\!:~ \\beta = 0\\]\n\nLeeuw et al claim that this is equivalent to\n\\[H_0\\!:~ \\hat\\beta  = 0\\]\n\n\nThis is not hypothesis testing is done. {\\(\\hat\\beta=0\\)} is an event with probability 0.\n\n\nPremise is wrong, and the conclusion is wrong\nWe can dismiss the report that error in prediction invalidates *WAS"
   },
   {
     "objectID": "index.html#what-is-wrong-with-leeuw-et-als-reformulated-hypothesis",
     "href": "index.html#what-is-wrong-with-leeuw-et-als-reformulated-hypothesis",
     "title": "",
     "section": "What is wrong with Leeuw et al’s reformulated hypothesis?",
-    "text": "What is wrong with Leeuw et al’s reformulated hypothesis?\n\n\\[H_0\\!:~ \\text{cov}(\\hat{G}_E, Y)  = 0\\]"
-  },
-  {
-    "objectID": "index.html#what-is-wrong-with-leeuw-et-als-reformulated-hypothesis-1",
-    "href": "index.html#what-is-wrong-with-leeuw-et-als-reformulated-hypothesis-1",
-    "title": "",
-    "section": "What is wrong with Leeuw et al’s reformulated hypothesis?",
-    "text": "What is wrong with Leeuw et al’s reformulated hypothesis?\n\n\\[H_0\\!:~~~~ \\hat\\beta  ~~~~~~ = 0\\]"
+    "text": "What is wrong with Leeuw et al’s reformulated hypothesis?\n\n\\[H_0\\!:~ \\beta = 0\\]\n\\[H_0\\!:~ \\frac{\\text{cov}(\\hat{T}, Y)}{\\text{var}(\\hat{T})}  = 0\\] \\[H_0\\!:~ \\hat\\beta = 0\\]\n\n  \\[H_0\\!:~ \\hat{\\beta}  = 0\\]"
   },
   {
     "objectID": "index.html#take-home-message",
     "href": "index.html#take-home-message",
     "title": "",
     "section": "Take home message",
-    "text": "Take home message\n \n\nNever equate random variables with fixed variables"
+    "text": "Take home message\n\n\n\nStandard TWAS can yield inflated p-values when the trait is highly polygenic\nInflation can be corrected by simply using the noncentral χ2 distribution when calculating the p-values\nError in prediction does not cause inflation (under reasonable assumptions)\nNoisy predictors can be used which will reduce false negatives, as long as the type I error is controlled"
   },
   {
     "objectID": "index.html#leeuws-et-al-claim-that-error-in-variable-causes-inflation",
@@ -158,7 +179,7 @@
     "href": "index.html#what-does-the-inflation-factor-phi-look-like",
     "title": "",
     "section": "What does the inflation factor \\(\\Phi\\) look like",
-    "text": "What does the inflation factor \\(\\Phi\\) look like\n\n\n\\(\\Phi_\\text =  \\frac{\\tilde\\gamma' \\cdot \\Sigma^2 \\cdot \\tilde\\gamma}{\\tilde\\gamma' \\cdot \\Sigma \\cdot \\tilde\\gamma} \\frac{1}{M}\\)\n\\(\\frac{1}{M} \\le \\Phi \\le 1\\)\nlower bound attained when SNPs are independent\nupper bound attained when SNPs are perfectly correlated\n\\(\\Phi = \\frac{\\text{tr}(\\Sigma^2)}{M^2}\\) if mediator is also polygenic"
+    "text": "What does the inflation factor \\(\\Phi\\) look like\n\\[ E \\chi^2 \\propto N h^2 \\frac{1}{M} ?\\]\n\n\nif we do the math, we get \\[ E \\chi^2 \\approx\n1 +  N ~ h^2 ~\\frac{\\tilde\\gamma' \\cdot \\Sigma^2  \\cdot \\tilde\\gamma}{\\tilde\\gamma' \\cdot  \\Sigma  \\cdot \\tilde\\gamma} \\frac{1}{M} \\]\nlet’s define \\(\\Phi\\) \\[ \\Phi  = \\frac{\\tilde\\gamma' \\cdot \\Sigma^2  \\cdot \\tilde\\gamma}{\\tilde\\gamma' \\cdot  \\Sigma  \\cdot \\tilde\\gamma} \\frac{1}{M}\\]\n\\(\\frac{1}{M} \\le \\Phi \\le 1\\)\nlower bound attained when SNPs are independent\nupper bound attained when SNPs are perfectly correlated\n\\(\\Phi = \\frac{\\text{tr}(\\Sigma^2)}{M^2}\\) if mediator is also polygenic"
   },
   {
     "objectID": "index.html#simulated-null-χ2-vs-theoretical",
@@ -222,5 +243,110 @@
     "title": "",
     "section": "Take home message",
     "text": "Take home message\n\n\nStandard TWAS can yield inflated p-values\nThe χ2 statistic is noncentral\nNCP is linear in sample size\nNCP is linear in the heritability of Y\n\\(\\Phi\\) is a function of the mediator and can be estimated using mediator prediction weights\nInflation can be corrected by simply using the noncentral χ2 distribution when calculating the p-values"
+  },
+  {
+    "objectID": "index.html#twas-uses-gwas-data-to-find-genes-associated-with-trait",
+    "href": "index.html#twas-uses-gwas-data-to-find-genes-associated-with-trait",
+    "title": "",
+    "section": "TWAS uses GWAS data to find genes associated with trait",
+    "text": "TWAS uses GWAS data to find genes associated with trait"
+  },
+  {
+    "objectID": "index.html#extension-of-twas-to-other-omic-traits",
+    "href": "index.html#extension-of-twas-to-other-omic-traits",
+    "title": "",
+    "section": "Extension of TWAS to other omic traits",
+    "text": "Extension of TWAS to other omic traits"
+  },
+  {
+    "objectID": "index.html#extension-of-twas-are-actively-being-developed",
+    "href": "index.html#extension-of-twas-are-actively-being-developed",
+    "title": "",
+    "section": "Extension of TWAS are actively being developed",
+    "text": "Extension of TWAS are actively being developed"
+  },
+  {
+    "objectID": "index.html#twas-extensions-are-actively-being-developed",
+    "href": "index.html#twas-extensions-are-actively-being-developed",
+    "title": "",
+    "section": "TWAS extensions are actively being developed",
+    "text": "TWAS extensions are actively being developed\n\n\nit uses genetic predictors of omic traits to bridge the gap between genotype and phenotype"
+  },
+  {
+    "objectID": "index.html#leeuw-et-al-questions-the-validity-of-twas",
+    "href": "index.html#leeuw-et-al-questions-the-validity-of-twas",
+    "title": "",
+    "section": "Leeuw et al questions the validity of TWAS",
+    "text": "Leeuw et al questions the validity of TWAS"
+  },
+  {
+    "objectID": "index.html#leeuw-et-al-questioned-the-validity-of-twas",
+    "href": "index.html#leeuw-et-al-questioned-the-validity-of-twas",
+    "title": "",
+    "section": "Leeuw et al questioned the validity of TWAS",
+    "text": "Leeuw et al questioned the validity of TWAS"
+  },
+  {
+    "objectID": "index.html#what-if-we-use-a-noisy-predictor",
+    "href": "index.html#what-if-we-use-a-noisy-predictor",
+    "title": "",
+    "section": "What if we use a noisy predictor?",
+    "text": "What if we use a noisy predictor?\n\n\n TWAS model \n\\[\\begin{align*}\nY &= \\beta ~ T +  \\epsilon_\\text{twas} \\\\\n\nT &= \\sum_k (\\gamma_k + e) ~ X_k \\\\\n\ne &\\perp\\!\\!\\!\\perp Y \\quad \\epsilon_\\text{twas} \\perp\\!\\!\\!\\perp T\n\\end{align*}\\]\n\nbeta = 0\nN = 1000\nM = 999\nmaf=0.4\netwas = rnorm(N)\ngamma = rnorm(M)\ne = rnorm(M)\nX = matrix(rbinom(N*M,2,maf),N,M)\nT = X %*% (gamma + e)\nY = beta * T + etwas\nfit = lm(Y ~ T)\n\n\n\nlet’s simulate the regression 1000 times \n\n\n\n\n\n\n\nNo inflation\n\n\nif error in T is independent of Y,\nthere is no reason to see inflation"
+  },
+  {
+    "objectID": "index.html#lets-revisit-the-simulation-using-polygenic-y",
+    "href": "index.html#lets-revisit-the-simulation-using-polygenic-y",
+    "title": "",
+    "section": "Let’s revisit the simulation using polygenic Y",
+    "text": "Let’s revisit the simulation using polygenic Y\n\n\n\\[\\begin{align*}\n\nY &= \\beta ~ T + \\epsilon_\\text{twas}\\\\\n\n\\epsilon_\\text{twas} &= \\sum_k X_k ~ \\delta_k + \\epsilon \\\\\n\nT &= \\sum_k \\gamma_k ~ X_k \\\\\n\n\\epsilon, ~\\gamma,~ \\delta &  \\perp\\!\\!\\!\\perp ~ \\therefore ~ T \\perp\\!\\!\\!\\perp \\epsilon_\\text{twas}\n\n\n\\end{align*}\\]\n\nbeta = 0\nN = 1000\nM = 999\nmaf=0.4\netwas = rnorm(N)\ngamma = rnorm(M)\ndelta = rnorm(M)\nX = matrix(rbinom(N*M,2,maf),N,M)\nT = X %*% gamma \nY = beta * T + X %*% delta + etwas\nfit = lm(Y ~ T)\n\n\n\n\n\n\n\n\n\n\nNow we do see inflation"
+  },
+  {
+    "objectID": "index.html#how-does-inflation-vary-with-sample-size",
+    "href": "index.html#how-does-inflation-vary-with-sample-size",
+    "title": "",
+    "section": "How does inflation vary with sample size?",
+    "text": "How does inflation vary with sample size?"
+  },
+  {
+    "objectID": "index.html#how-does-inflation-vary-with-heritability-of-y",
+    "href": "index.html#how-does-inflation-vary-with-heritability-of-y",
+    "title": "",
+    "section": "How does inflation vary with heritability of Y?",
+    "text": "How does inflation vary with heritability of Y?"
+  },
+  {
+    "objectID": "index.html#how-does-inflation-vary-with-the-number-of-snps",
+    "href": "index.html#how-does-inflation-vary-with-the-number-of-snps",
+    "title": "",
+    "section": "How does inflation vary with the number of SNPs?",
+    "text": "How does inflation vary with the number of SNPs?"
+  },
+  {
+    "objectID": "index.html#what-does-the-inflation-factor-look-like",
+    "href": "index.html#what-does-the-inflation-factor-look-like",
+    "title": "",
+    "section": "What does the inflation factor look like",
+    "text": "What does the inflation factor look like\n\\[ E \\chi^2 \\propto N h^2 \\frac{1}{M} ?\\]\n\n\nif we do the math, we get \\[ E \\chi^2 \\approx\n1 +  N ~ h^2 ~\\frac{\\tilde\\gamma' \\cdot \\Sigma^2  \\cdot \\tilde\\gamma}{\\tilde\\gamma' \\cdot  \\Sigma  \\cdot \\tilde\\gamma} \\frac{1}{M} \\]\nwe define \\(\\Phi\\) as \\[ \\Phi  = \\frac{\\tilde\\gamma' \\cdot \\Sigma^2  \\cdot \\tilde\\gamma}{\\tilde\\gamma' \\cdot  \\Sigma  \\cdot \\tilde\\gamma} \\frac{1}{M}\\]\n\\(\\frac{1}{M} \\le \\Phi \\le 1\\)\nlower bound attained when SNPs are independent\nupper bound attained when SNPs are perfectly correlated\n\\(\\Phi = \\frac{\\text{tr}(\\Sigma^2)}{M^2}\\) if mediator is also polygenic"
+  },
+  {
+    "objectID": "index.html#what-does-the-inflation-look-like",
+    "href": "index.html#what-does-the-inflation-look-like",
+    "title": "",
+    "section": "What does the inflation look like",
+    "text": "What does the inflation look like\n\\[ E \\chi^2 \\propto N h^2 \\frac{1}{M} ?\\]\n\n\nif we do the math, we get \\[ E \\chi^2 \\approx\n1 +  N ~ h^2 ~\\frac{\\tilde\\gamma' \\cdot \\Sigma^2  \\cdot \\tilde\\gamma}{\\tilde\\gamma' \\cdot  \\Sigma  \\cdot \\tilde\\gamma} \\frac{1}{M} \\]\nwe define the inflation factor \\(\\Phi\\) as \\[ \\Phi  = \\frac{\\tilde\\gamma' \\cdot \\Sigma^2  \\cdot \\tilde\\gamma}{\\tilde\\gamma' \\cdot  \\Sigma  \\cdot \\tilde\\gamma} \\frac{1}{M} \\]\nwhen SNPs are independent \\(\\Phi = \\frac{1}{M}\\) we get the expression we guessed \\(E \\chi^2 = 1 + N h^2 \\frac{1}{M}\\)"
+  },
+  {
+    "objectID": "index.html#what-are-the-properties-of-the-inflation-factor",
+    "href": "index.html#what-are-the-properties-of-the-inflation-factor",
+    "title": "",
+    "section": "What are the properties of the inflation factor",
+    "text": "What are the properties of the inflation factor\n\n\nupper and lower bounds are \\[\\frac{1}{M} \\le \\Phi \\le 1\\]\nlower bound attained when SNPs are independent\nupper bound attained when SNPs are perfectly correlated\n\\(\\Phi = \\frac{\\text{tr}(\\Sigma^2)}{M^2}\\) if mediator is also polygenic"
+  },
+  {
+    "objectID": "index.html#we-can-derive-a-more-general-expression",
+    "href": "index.html#we-can-derive-a-more-general-expression",
+    "title": "",
+    "section": "We can derive a more general expression",
+    "text": "We can derive a more general expression\nfor the TWAS χ2 Statistic with Polygenic Y & Noisy Mediator\n\\[E~\\chi^2_\\text{twas} \\approx 1  + N ~h^2_\\delta ~ \\frac{\\Phi(\\text{gene})}{1 - \\beta^2\\tau^2} +  N ~ \\frac{\\beta^2 }{1 - \\beta^2\\tau^2}~\\tau^2\\] where\n\\[\\tau^2 = \\text{signal to noise ratio}\\] \\[ = \\text{precision} = \\frac{\\text{var}(T)}{\\text{var}(\\tilde{T})}\\]"
   }
 ]
