@@ -116,7 +116,7 @@
     "href": "index.html#take-home-message",
     "title": "",
     "section": "Take home message",
-    "text": "Take home message\n\n\n\nStandard TWAS can yield inflated p-values when the trait is highly polygenic\nInflation can be corrected by simply using the noncentral χ2 distribution when calculating the p-values\nError in prediction does not cause inflation (under reasonable assumptions)\nNoisy predictors can be used which will reduce false negatives, as long as the type I error is controlled"
+    "text": "Take home message\n\n\n\n\n\nStandard TWAS can yield inflated p-values when the trait is highly polygenic\nInflation can be corrected by simply using the noncentral χ2 distribution when calculating the p-values\nError in prediction does not cause inflation (under reasonable assumptions)\nNoisy predictors can be used which will reduce false negatives, as long as the type I error is controlled"
   },
   {
     "objectID": "index.html#leeuws-et-al-claim-that-error-in-variable-causes-inflation",
@@ -235,7 +235,7 @@
     "href": "index.html#estimated-factor-φ-for-genes-metabolites-brain-features",
     "title": "",
     "section": "Estimated Factor Φ for Genes, Metabolites, Brain Features",
-    "text": "Estimated Factor Φ for Genes, Metabolites, Brain Features"
+    "text": "Estimated Factor Φ for Genes, Metabolites, Brain Features\n\n\\(\\Phi\\) values will be included in the prediction weight databases and correction added to the PrediXcan software"
   },
   {
     "objectID": "index.html#take-home-message-1",
@@ -284,21 +284,21 @@
     "href": "index.html#leeuw-et-al-questioned-the-validity-of-twas",
     "title": "",
     "section": "Leeuw et al questioned the validity of TWAS",
-    "text": "Leeuw et al questioned the validity of TWAS"
+    "text": "Leeuw et al questioned the validity of TWAS\n:::{.columns} :::{.column width=75%} \n:::\n\n\nLeewu et al claim that noise in predictors cause inflation of TWAS"
   },
   {
     "objectID": "index.html#what-if-we-use-a-noisy-predictor",
     "href": "index.html#what-if-we-use-a-noisy-predictor",
     "title": "",
     "section": "What if we use a noisy predictor?",
-    "text": "What if we use a noisy predictor?\n\n\n TWAS model \n\\[\\begin{align*}\nY &= \\beta ~ T +  \\epsilon_\\text{twas} \\\\\n\nT &= \\sum_k (\\gamma_k + e) ~ X_k \\\\\n\ne &\\perp\\!\\!\\!\\perp Y \\quad \\epsilon_\\text{twas} \\perp\\!\\!\\!\\perp T\n\\end{align*}\\]\n\nbeta = 0\nN = 1000\nM = 999\nmaf=0.4\netwas = rnorm(N)\ngamma = rnorm(M)\ne = rnorm(M)\nX = matrix(rbinom(N*M,2,maf),N,M)\nT = X %*% (gamma + e)\nY = beta * T + etwas\nfit = lm(Y ~ T)\n\n\n\nlet’s simulate the regression 1000 times \n\n\n\n\n\n\n\nNo inflation\n\n\nif error in T is independent of Y,\nthere is no reason to see inflation"
+    "text": "What if we use a noisy predictor?\n\n\n TWAS model \n\\[\\begin{align*}\nY &= \\beta ~ T +  \\epsilon_\\text{twas} \\\\\n\n\\tilde{T} &= \\sum_k (\\gamma_k + e) ~ X_k \\\\\n\ne &\\perp\\!\\!\\!\\perp Y \\quad \\epsilon_\\text{twas} \\perp\\!\\!\\!\\perp T\n\\end{align*}\\]\n\nbeta = 0\nN = 1000\nM = 999\nmaf=0.4\netwas = rnorm(N)\ngamma = rnorm(M)\ne = rnorm(M)\nX = matrix(rbinom(N*M,2,maf),N,M)\nTtilde = X %*% (gamma + e)\nY = beta * Ttilde + etwas\nfit = lm(Y ~ Ttilde)\n\n\n\nlet’s simulate the regression 1000 times \n\n\n\n\n\n\n\nNo inflation\n\n\nif error in T is independent of Y,\nthere is no reason to see inflation"
   },
   {
     "objectID": "index.html#lets-revisit-the-simulation-using-polygenic-y",
     "href": "index.html#lets-revisit-the-simulation-using-polygenic-y",
     "title": "",
     "section": "Let’s revisit the simulation using polygenic Y",
-    "text": "Let’s revisit the simulation using polygenic Y\n\n\n\\[\\begin{align*}\n\nY &= \\beta ~ T + \\epsilon_\\text{twas}\\\\\n\n\\epsilon_\\text{twas} &= \\sum_k X_k ~ \\delta_k + \\epsilon \\\\\n\nT &= \\sum_k \\gamma_k ~ X_k \\\\\n\n\\epsilon, ~\\gamma,~ \\delta &  \\perp\\!\\!\\!\\perp ~ \\therefore ~ T \\perp\\!\\!\\!\\perp \\epsilon_\\text{twas}\n\n\n\\end{align*}\\]\n\nbeta = 0\nN = 1000\nM = 999\nmaf=0.4\netwas = rnorm(N)\ngamma = rnorm(M)\ndelta = rnorm(M)\nX = matrix(rbinom(N*M,2,maf),N,M)\nT = X %*% gamma \nY = beta * T + X %*% delta + etwas\nfit = lm(Y ~ T)\n\n\n\n\n\n\n\n\n\n\nNow we do see inflation"
+    "text": "Let’s revisit the simulation using polygenic Y\n\n\n\\[\\begin{align*}\n\nY &= \\beta ~ T + \\epsilon_\\text{twas}\\\\\n\n\\epsilon_\\text{twas} &= \\sum_k X_k ~ \\delta_k + \\epsilon \\\\\n\nT &= \\sum_k \\gamma_k ~ X_k \\\\\n\n\\epsilon, ~\\gamma,~ \\delta &  \\perp\\!\\!\\!\\perp ~ \\therefore ~ T \\perp\\!\\!\\!\\perp \\epsilon_\\text{twas}\n\n\n\\end{align*}\\]\n\nbeta = 0\nN = 1000\nM = 999\nmaf=0.4\nepsi = rnorm(N)\ngamma = rnorm(M)\ndelta = rnorm(M)\nX = matrix(rbinom(N*M,2,maf),N,M)\nT = X %*% gamma \nY = beta * T + X %*% delta + epsi\nfit = lm(Y ~ T)\n\n\n\n\n\n\n\n\n\n\nNow we do see inflation"
   },
   {
     "objectID": "index.html#how-does-inflation-vary-with-sample-size",
@@ -333,7 +333,7 @@
     "href": "index.html#what-does-the-inflation-look-like",
     "title": "",
     "section": "What does the inflation look like",
-    "text": "What does the inflation look like\n\\[ E \\chi^2 \\propto N h^2 \\frac{1}{M} ?\\]\n\n\nif we do the math, we get \\[ E \\chi^2 \\approx\n1 +  N ~ h^2 ~\\frac{\\tilde\\gamma' \\cdot \\Sigma^2  \\cdot \\tilde\\gamma}{\\tilde\\gamma' \\cdot  \\Sigma  \\cdot \\tilde\\gamma} \\frac{1}{M} \\]\nwe define the inflation factor \\(\\Phi\\) as \\[ \\Phi  = \\frac{\\tilde\\gamma' \\cdot \\Sigma^2  \\cdot \\tilde\\gamma}{\\tilde\\gamma' \\cdot  \\Sigma  \\cdot \\tilde\\gamma} \\frac{1}{M} \\]\nwhen SNPs are independent \\(\\Phi = \\frac{1}{M}\\) we get the expression we guessed \\(E \\chi^2 = 1 + N h^2 \\frac{1}{M}\\)"
+    "text": "What does the inflation look like\n\\[ E \\chi^2 \\propto N h^2 \\frac{1}{M} ?\\]\n\n\nif we do the math, we get \\[ E \\chi^2 \\approx\n1 +  N ~ h^2 ~\\left ( \\frac{\\tilde\\gamma' \\cdot \\Sigma^2  \\cdot \\tilde\\gamma}{\\tilde\\gamma' \\cdot  \\Sigma  \\cdot \\tilde\\gamma} \\frac{1}{M} \\right )\\]\nwe define the inflation factor \\(\\Phi\\) as \\[ \\Phi  = \\frac{\\tilde\\gamma' \\cdot \\Sigma^2  \\cdot \\tilde\\gamma}{\\tilde\\gamma' \\cdot  \\Sigma  \\cdot \\tilde\\gamma} \\frac{1}{M} \\]\nwhen SNPs are independent \\(\\Phi = \\frac{1}{M}\\) we get the expression we guessed \\(E \\chi^2 = 1 + N h^2 \\frac{1}{M}\\)"
   },
   {
     "objectID": "index.html#what-are-the-properties-of-the-inflation-factor",
@@ -347,6 +347,20 @@
     "href": "index.html#we-can-derive-a-more-general-expression",
     "title": "",
     "section": "We can derive a more general expression",
-    "text": "We can derive a more general expression\nfor the TWAS χ2 Statistic with Polygenic Y & Noisy Mediator\n\\[E~\\chi^2_\\text{twas} \\approx 1  + N ~h^2_\\delta ~ \\frac{\\Phi(\\text{gene})}{1 - \\beta^2\\tau^2} +  N ~ \\frac{\\beta^2 }{1 - \\beta^2\\tau^2}~\\tau^2\\] where\n\\[\\tau^2 = \\text{signal to noise ratio}\\] \\[ = \\text{precision} = \\frac{\\text{var}(T)}{\\text{var}(\\tilde{T})}\\]"
+    "text": "We can derive a more general expression\nfor the TWAS χ2 Statistic with Polygenic Y & Noisy Mediator\n\n\\[E~\\chi^2_\\text{twas} \\approx 1  + N ~h^2_\\delta ~ \\frac{\\Phi(\\text{gene})}{1 - \\beta^2\\tau^2} +  N ~ \\frac{\\beta^2 }{1 - \\beta^2\\tau^2}~\\tau^2\\]   where the precision \\(\\tau^2 = \\text{signal to noise ratio} = \\frac{\\text{var}(T)}{\\text{var}(\\tilde{T})}\\)"
+  },
+  {
+    "objectID": "index.html#can-we-correct-the-inflation",
+    "href": "index.html#can-we-correct-the-inflation",
+    "title": "",
+    "section": "Can we correct the inflation?",
+    "text": "Can we correct the inflation?\n\n\n\nYes! \nCalculate the non centrality parameter \nUse noncentral χ2 to compute p-values \n\\(\\texttt{pchisq(chi2, ncp=N*h2Y*phi, df=1, lower.tail=FALSE)}\\)"
+  },
+  {
+    "objectID": "index.html#the-story-doesnt-end-there-joint-work-with",
+    "href": "index.html#the-story-doesnt-end-there-joint-work-with",
+    "title": "",
+    "section": "The story doesn’t end there, joint work with",
+    "text": "The story doesn’t end there, joint work with"
   }
 ]

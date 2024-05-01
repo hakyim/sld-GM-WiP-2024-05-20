@@ -141,7 +141,19 @@ it uses genetic predictors of omic traits to bridge the gap between genotype and
 
 ## Leeuw et al questioned the validity of TWAS  {background-image=assets/slide-background.svg}
 
-![](assets/leeuws-twas-validity.png){width=75%}
+:::{.columns}
+:::{.column width=75%}
+![](assets/leeuws-twas-validity.png)
+
+:::
+
+:::{.column width=30%}
+
+
+- Leewu et al claim that noise in predictors cause inflation of TWAS
+
+:::
+
 
 <!-- ## Why should we worry about inflation? {background-image=assets/slide-background.svg} -->
 
@@ -278,7 +290,7 @@ TWAS model
 \begin{align*}
 Y &= \beta ~ T +  \epsilon_\text{twas} \\
 
-T &= \sum_k (\gamma_k + e) ~ X_k \\
+\tilde{T} &= \sum_k (\gamma_k + e) ~ X_k \\
 
 e &\perp\!\!\!\perp Y \quad \epsilon_\text{twas} \perp\!\!\!\perp T
 \end{align*}
@@ -293,9 +305,9 @@ etwas = rnorm(N)
 gamma = rnorm(M)
 e = rnorm(M)
 X = matrix(rbinom(N*M,2,maf),N,M)
-T = X %*% (gamma + e)
-Y = beta * T + etwas
-fit = lm(Y ~ T)
+Ttilde = X %*% (gamma + e)
+Y = beta * Ttilde + etwas
+fit = lm(Y ~ Ttilde)
 ```
 
 
@@ -395,7 +407,7 @@ We can dismiss the report that error in prediction invalidates \*WAS
 
 
 
-## Joint work with {.nostretch background-image=assets/slide-background.svg}
+## The story doesn't end there, joint work with {.nostretch background-image=assets/slide-background.svg}
 
 ![](assets/yanyu-and-festus.png){width=65%}
 
@@ -425,12 +437,12 @@ beta = 0
 N = 1000
 M = 999
 maf=0.4
-etwas = rnorm(N)
+epsi = rnorm(N)
 gamma = rnorm(M)
 delta = rnorm(M)
 X = matrix(rbinom(N*M,2,maf),N,M)
 T = X %*% gamma 
-Y = beta * T + X %*% delta + etwas
+Y = beta * T + X %*% delta + epsi
 fit = lm(Y ~ T)
 ```
 
@@ -509,7 +521,7 @@ $$ E \chi^2 \propto N h^2 \frac{1}{M} ?$$
 :::{.incremental}
 - if we do the math, we get
 $$ E \chi^2 \approx
-1 +  N ~ h^2 ~\frac{\tilde\gamma' \cdot \Sigma^2  \cdot \tilde\gamma}{\tilde\gamma' \cdot  \Sigma  \cdot \tilde\gamma} \frac{1}{M} $$
+1 +  N ~ h^2 ~\left ( \frac{\tilde\gamma' \cdot \Sigma^2  \cdot \tilde\gamma}{\tilde\gamma' \cdot  \Sigma  \cdot \tilde\gamma} \frac{1}{M} \right )$$
 
 
 - we define the inflation factor $\Phi$ as
@@ -541,40 +553,56 @@ $\Phi = \frac{1}{M}$ we get the expression we guessed
 
 for the TWAS χ2 Statistic with Polygenic Y & Noisy Mediator 
 
+<br><br>
+
 $$E~\chi^2_\text{twas} \approx 1  + N ~h^2_\delta ~ \frac{\Phi(\text{gene})}{1 - \beta^2\tau^2} +  N ~ \frac{\beta^2 }{1 - \beta^2\tau^2}~\tau^2$$
-where
+<br><br>
+<br><br>
+where the precision
+$\tau^2 = \text{signal to noise ratio} = \frac{\text{var}(T)}{\text{var}(\tilde{T})}$
 
-$$\tau^2 = \text{signal to noise ratio}$$
-$$ = \text{precision} = \frac{\text{var}(T)}{\text{var}(\tilde{T})}$$
 
-## Alternative χ2 with Polygenic Y and Noisy Mediator {background-image=assets/slide-background.svg}
+<!-- ## Alternative χ2 with Polygenic Y and Noisy Mediator {background-image=assets/slide-background.svg} -->
 
-![](assets/alternative-chi2-polygenic-Y-noisy-T.png)
+<!-- ![](assets/alternative-chi2-polygenic-Y-noisy-T.png) -->
 
 ## Dependence on Precision of Predictor {background-image=assets/slide-background.svg}
 
 ![](assets/inflation-vs-precision.png)
 
-## How to Correct the Inflation {background-image=assets/slide-background.svg}
+## Can we correct the inflation? {background-image=assets/slide-background.svg}
 
 ::: {.incremental}
 
+<br>
+
+- Yes!
+<br>
+
 - Calculate the non centrality parameter
+<br>
 
 - Use noncentral χ2 to compute p-values
+<br>
 
 - $\texttt{pchisq(chi2, ncp=N*h2Y*phi, df=1, lower.tail=FALSE)}$
 
 :::
 
-## Estimated Factor Φ for Genes, Metabolites, Brain Features  {background-image=assets/slide-background.svg}
+## Estimated Factor Φ for Genes, Metabolites, Brain Features  {background-image=assets/slide-background.svg .nostretch}
 
-![](assets/phi-distribution.png)
+![](assets/phi-distribution.png){width=85%}
+
+$\Phi$ values will be included in the prediction weight databases and correction added to the PrediXcan software
 
 
 ## Take home message {background-image=assets/slide-background.svg}
 <br>
 
+
+::: {.columns}
+
+:::{.column width=75%}
 :::{.incremental}
 - Standard TWAS can yield inflated p-values when the trait is highly polygenic
 - Inflation can be corrected by simply using the noncentral χ2 distribution when calculating the p-values
@@ -582,5 +610,9 @@ $$ = \text{precision} = \frac{\text{var}(T)}{\text{var}(\tilde{T})}$$
 - Noisy predictors can be used which will reduce false negatives, as long as the type I error is controlled
 :::
 
+:::
+
+:::
 
 
+# Thank you {background-color="white"}

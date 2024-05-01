@@ -465,7 +465,13 @@ Hae Kyung Im
 </section>
 <section id="leeuw-et-al-questioned-the-validity-of-twas" class="slide level2" data-background-image="assets/slide-background.svg">
 <h2>Leeuw et al questioned the validity of TWAS</h2>
-
+<p>:::{.columns} :::{.column width=75%} <img data-src="assets/leeuws-twas-validity.png"></p>
+<p>:::</p>
+<div class="column" style="width:30%;">
+<ul>
+<li>Leewu et al claim that noise in predictors cause inflation of TWAS</li>
+</ul>
+</div>
 <!-- ## Why should we worry about inflation? {background-image=assets/slide-background.svg} -->
 <!-- . . . -->
 <!-- <br> -->
@@ -485,7 +491,7 @@ Hae Kyung Im
 <!-- <br>  -->
 <!-- <br>  -->
 <!-- just reject the null every time </center> -->
-<img data-src="assets/leeuws-twas-validity.png" style="width:75.0%" class="r-stretch"></section>
+</section>
 <section id="check-inflation-via-simulations" class="slide level2" data-background-image="assets/slide-background.svg">
 <h2>Check inflation via simulations</h2>
 <div class="columns">
@@ -531,7 +537,7 @@ T &amp;= \sum_k \gamma_k ~ X_k \quad \epsilon_\text{twas} \perp\!\!\!\perp T
 <p><span class="math display">\[\begin{align*}
 Y &amp;= \beta ~ T +  \epsilon_\text{twas} \\
 
-T &amp;= \sum_k (\gamma_k + e) ~ X_k \\
+\tilde{T} &amp;= \sum_k (\gamma_k + e) ~ X_k \\
 
 e &amp;\perp\!\!\!\perp Y \quad \epsilon_\text{twas} \perp\!\!\!\perp T
 \end{align*}\]</span></p>
@@ -544,9 +550,9 @@ e &amp;\perp\!\!\!\perp Y \quad \epsilon_\text{twas} \perp\!\!\!\perp T
 <span id="cb2-6"><a href="#cb2-6"></a>gamma <span class="ot">=</span> <span class="fu">rnorm</span>(M)</span>
 <span id="cb2-7"><a href="#cb2-7"></a>e <span class="ot">=</span> <span class="fu">rnorm</span>(M)</span>
 <span id="cb2-8"><a href="#cb2-8"></a>X <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">rbinom</span>(N<span class="sc">*</span>M,<span class="dv">2</span>,maf),N,M)</span>
-<span id="cb2-9"><a href="#cb2-9"></a>T <span class="ot">=</span> X <span class="sc">%*%</span> (gamma <span class="sc">+</span> e)</span>
-<span id="cb2-10"><a href="#cb2-10"></a>Y <span class="ot">=</span> beta <span class="sc">*</span> T <span class="sc">+</span> etwas</span>
-<span id="cb2-11"><a href="#cb2-11"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(Y <span class="sc">~</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-9"><a href="#cb2-9"></a>Ttilde <span class="ot">=</span> X <span class="sc">%*%</span> (gamma <span class="sc">+</span> e)</span>
+<span id="cb2-10"><a href="#cb2-10"></a>Y <span class="ot">=</span> beta <span class="sc">*</span> Ttilde <span class="sc">+</span> etwas</span>
+<span id="cb2-11"><a href="#cb2-11"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(Y <span class="sc">~</span> Ttilde)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="fragment">
@@ -583,8 +589,8 @@ e &amp;\perp\!\!\!\perp Y \quad \epsilon_\text{twas} \perp\!\!\!\perp T
 <p>We can dismiss the report that error in prediction invalidates *WAS</p>
 </div>
 </section>
-<section id="joint-work-with" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
-<h2>Joint work with</h2>
+<section id="the-story-doesnt-end-there-joint-work-with" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>The story doesn’t end there, joint work with</h2>
 <p><img data-src="assets/yanyu-and-festus.png" style="width:65.0%"></p>
 </section>
 <section id="lets-revisit-the-simulation-using-polygenic-y" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
@@ -608,12 +614,12 @@ T &amp;= \sum_k \gamma_k ~ X_k \\
 <span id="cb3-2"><a href="#cb3-2"></a>N <span class="ot">=</span> <span class="dv">1000</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a>M <span class="ot">=</span> <span class="dv">999</span></span>
 <span id="cb3-4"><a href="#cb3-4"></a>maf<span class="ot">=</span><span class="fl">0.4</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a>etwas <span class="ot">=</span> <span class="fu">rnorm</span>(N)</span>
+<span id="cb3-5"><a href="#cb3-5"></a>epsi <span class="ot">=</span> <span class="fu">rnorm</span>(N)</span>
 <span id="cb3-6"><a href="#cb3-6"></a>gamma <span class="ot">=</span> <span class="fu">rnorm</span>(M)</span>
 <span id="cb3-7"><a href="#cb3-7"></a>delta <span class="ot">=</span> <span class="fu">rnorm</span>(M)</span>
 <span id="cb3-8"><a href="#cb3-8"></a>X <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">rbinom</span>(N<span class="sc">*</span>M,<span class="dv">2</span>,maf),N,M)</span>
 <span id="cb3-9"><a href="#cb3-9"></a>T <span class="ot">=</span> X <span class="sc">%*%</span> gamma </span>
-<span id="cb3-10"><a href="#cb3-10"></a>Y <span class="ot">=</span> beta <span class="sc">*</span> T <span class="sc">+</span> X <span class="sc">%*%</span> delta <span class="sc">+</span> etwas</span>
+<span id="cb3-10"><a href="#cb3-10"></a>Y <span class="ot">=</span> beta <span class="sc">*</span> T <span class="sc">+</span> X <span class="sc">%*%</span> delta <span class="sc">+</span> epsi</span>
 <span id="cb3-11"><a href="#cb3-11"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(Y <span class="sc">~</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
@@ -648,7 +654,7 @@ T &amp;= \sum_k \gamma_k ~ X_k \\
 <div>
 <ul>
 <li class="fragment"><p>if we do the math, we get <span class="math display">\[ E \chi^2 \approx
-1 +  N ~ h^2 ~\frac{\tilde\gamma' \cdot \Sigma^2  \cdot \tilde\gamma}{\tilde\gamma' \cdot  \Sigma  \cdot \tilde\gamma} \frac{1}{M} \]</span></p></li>
+1 +  N ~ h^2 ~\left ( \frac{\tilde\gamma' \cdot \Sigma^2  \cdot \tilde\gamma}{\tilde\gamma' \cdot  \Sigma  \cdot \tilde\gamma} \frac{1}{M} \right )\]</span></p></li>
 <li class="fragment"><p>we define the inflation factor <span class="math inline">\(\Phi\)</span> as <span class="math display">\[ \Phi  = \frac{\tilde\gamma' \cdot \Sigma^2  \cdot \tilde\gamma}{\tilde\gamma' \cdot  \Sigma  \cdot \tilde\gamma} \frac{1}{M} \]</span></p></li>
 <li class="fragment"><p>when SNPs are independent <span class="math inline">\(\Phi = \frac{1}{M}\)</span> we get the expression we guessed <span class="math inline">\(E \chi^2 = 1 + N h^2 \frac{1}{M}\)</span></p></li>
 </ul>
@@ -658,34 +664,37 @@ T &amp;= \sum_k \gamma_k ~ X_k \\
 <section id="we-can-derive-a-more-general-expression" class="slide level2" data-background-image="assets/slide-background.svg">
 <h2>We can derive a more general expression</h2>
 <p>for the TWAS χ2 Statistic with Polygenic Y &amp; Noisy Mediator</p>
-<p><span class="math display">\[E~\chi^2_\text{twas} \approx 1  + N ~h^2_\delta ~ \frac{\Phi(\text{gene})}{1 - \beta^2\tau^2} +  N ~ \frac{\beta^2 }{1 - \beta^2\tau^2}~\tau^2\]</span> where</p>
-<p><span class="math display">\[\tau^2 = \text{signal to noise ratio}\]</span> <span class="math display">\[ = \text{precision} = \frac{\text{var}(T)}{\text{var}(\tilde{T})}\]</span></p>
+<p><br><br></p>
+<p><span class="math display">\[E~\chi^2_\text{twas} \approx 1  + N ~h^2_\delta ~ \frac{\Phi(\text{gene})}{1 - \beta^2\tau^2} +  N ~ \frac{\beta^2 }{1 - \beta^2\tau^2}~\tau^2\]</span> <br><br> <br><br> where the precision <span class="math inline">\(\tau^2 = \text{signal to noise ratio} = \frac{\text{var}(T)}{\text{var}(\tilde{T})}\)</span></p>
+<!-- ## Alternative χ2 with Polygenic Y and Noisy Mediator {background-image=assets/slide-background.svg} -->
+<!-- ![](assets/alternative-chi2-polygenic-Y-noisy-T.png) -->
 </section>
-<section id="alternative-χ2-with-polygenic-y-and-noisy-mediator" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>Alternative χ2 with Polygenic Y and Noisy Mediator</h2>
-
-<img data-src="assets/alternative-chi2-polygenic-Y-noisy-T.png" class="r-stretch"></section>
 <section id="dependence-on-precision-of-predictor" class="slide level2" data-background-image="assets/slide-background.svg">
 <h2>Dependence on Precision of Predictor</h2>
 
 <img data-src="assets/inflation-vs-precision.png" class="r-stretch"></section>
-<section id="how-to-correct-the-inflation" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>How to Correct the Inflation</h2>
+<section id="can-we-correct-the-inflation" class="slide level2" data-background-image="assets/slide-background.svg">
+<h2>Can we correct the inflation?</h2>
 <div>
+<p><br></p>
 <ul>
-<li class="fragment"><p>Calculate the non centrality parameter</p></li>
-<li class="fragment"><p>Use noncentral χ2 to compute p-values</p></li>
+<li class="fragment"><p>Yes! <br></p></li>
+<li class="fragment"><p>Calculate the non centrality parameter <br></p></li>
+<li class="fragment"><p>Use noncentral χ2 to compute p-values <br></p></li>
 <li class="fragment"><p><span class="math inline">\(\texttt{pchisq(chi2, ncp=N*h2Y*phi, df=1, lower.tail=FALSE)}\)</span></p></li>
 </ul>
 </div>
 </section>
-<section id="estimated-factor-φ-for-genes-metabolites-brain-features" class="slide level2" data-background-image="assets/slide-background.svg">
+<section id="estimated-factor-φ-for-genes-metabolites-brain-features" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
 <h2>Estimated Factor Φ for Genes, Metabolites, Brain Features</h2>
-
-<img data-src="assets/phi-distribution.png" class="r-stretch"></section>
+<p><img data-src="assets/phi-distribution.png" style="width:85.0%"></p>
+<p><span class="math inline">\(\Phi\)</span> values will be included in the prediction weight databases and correction added to the PrediXcan software</p>
+</section>
 <section id="take-home-message" class="slide level2" data-background-image="assets/slide-background.svg">
 <h2>Take home message</h2>
 <p><br></p>
+<div class="columns">
+<div class="column" style="width:75%;">
 <div>
 <ul>
 <li class="fragment">Standard TWAS can yield inflated p-values when the trait is highly polygenic</li>
@@ -694,11 +703,16 @@ T &amp;= \sum_k \gamma_k ~ X_k \\
 <li class="fragment">Noisy predictors can be used which will reduce false negatives, as long as the type I error is controlled</li>
 </ul>
 </div>
+</div>
+</div>
+</section></section>
+<section id="thank-you" class="title-slide slide level1 center" data-background-color="white">
+<h1>Thank you</h1>
 
 <div class="footer footer-default">
 
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
