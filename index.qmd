@@ -9,6 +9,7 @@ format:
     echo: true
 editor: source
 freeze: true
+pdf-separate-fragments: true
 ---
 
 # On the Problem of Inflation in TWAS {background-color="white"}
