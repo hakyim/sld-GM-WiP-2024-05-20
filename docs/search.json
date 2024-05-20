@@ -473,7 +473,7 @@
     "href": "index.html#context-specific-expression-prediction",
     "title": "",
     "section": "Context specific expression prediction",
-    "text": "Context specific expression prediction\n\n\n\n\nSai Gona"
+    "text": "Context specific expression prediction\n \\(~~~~~~~~~~~~~~~~\\) Aracena et al 2023 NG\n\n\n\n\nSai Gona"
   },
   {
     "objectID": "index.html#single-cell-expression-prediction-charles-zhou",
@@ -733,5 +733,82 @@
     "title": "",
     "section": "TFXcan identifies TFBinding associated with disease",
     "text": "TFXcan identifies TFBinding associated with disease"
+  },
+  {
+    "objectID": "index.html#tf-binding-variable-in-ovarian-cancer-gwas-loci",
+    "href": "index.html#tf-binding-variable-in-ovarian-cancer-gwas-loci",
+    "title": "",
+    "section": "TF binding variable in ovarian cancer GWAS loci",
+    "text": "TF binding variable in ovarian cancer GWAS loci\n\n\n\n\n\nSofia Salazar"
+  },
+  {
+    "objectID": "index.html#can-we-identify-tfs-disrupted-by-gwas-variants",
+    "href": "index.html#can-we-identify-tfs-disrupted-by-gwas-variants",
+    "title": "",
+    "section": "Can we identify TFs disrupted by GWAS variants?",
+    "text": "Can we identify TFs disrupted by GWAS variants?\n\n\n\n\n\nSofia Salazar"
+  },
+  {
+    "objectID": "index.html#section",
+    "href": "index.html#section",
+    "title": "",
+    "section": "…",
+    "text": "…"
+  },
+  {
+    "objectID": "index.html#androgen-receptor-binding-sites-associated-with-prostate-cancer-risk",
+    "href": "index.html#androgen-receptor-binding-sites-associated-with-prostate-cancer-risk",
+    "title": "",
+    "section": "Androgen receptor binding sites associated with prostate cancer risk",
+    "text": "Androgen receptor binding sites associated with prostate cancer risk"
+  },
+  {
+    "objectID": "index.html#ar-binding-sites-associated-with-prostate-cancer-risk",
+    "href": "index.html#ar-binding-sites-associated-with-prostate-cancer-risk",
+    "title": "",
+    "section": "AR binding sites associated with prostate cancer risk",
+    "text": "AR binding sites associated with prostate cancer risk"
+  },
+  {
+    "objectID": "index.html#concordance-with-cwas-results",
+    "href": "index.html#concordance-with-cwas-results",
+    "title": "",
+    "section": "Concordance with CWAS results",
+    "text": "Concordance with CWAS results"
+  },
+  {
+    "objectID": "index.html#next-steps",
+    "href": "index.html#next-steps",
+    "title": "",
+    "section": "Next steps",
+    "text": "Next steps\n\n\n\ncross species integration (Sabrina Mi/UCSD)\nDNA language model training (Henry Raeder rotation project)\nMulti-omic language model training (Rodrigo Bonazzola U Leeds)\nMethylation prediction (Evan Wu Bioinformatics Core et al)\nSummary based mixed effects model (Sabrina Mi)"
+  },
+  {
+    "objectID": "index.html#conclusions",
+    "href": "index.html#conclusions",
+    "title": "",
+    "section": "Conclusions",
+    "text": "Conclusions\n\n\n\nWe integrate GWAS and function genomics data to understand the biology of complex diseases\nWe train and use genetic predictors of molecular traits as powerful instruments\nDeep learning methods that learn the grammar of DNA can help us address many limitations of population-based studies\nAll these methods only matter if we can answer questions that the field is interested in\nTell us about your scientific questions, our tools may be useful"
+  },
+  {
+    "objectID": "index.html#thank-you",
+    "href": "index.html#thank-you",
+    "title": "",
+    "section": "Thank you",
+    "text": "Thank you"
+  },
+  {
+    "objectID": "index.html#scpredixcan-identifies-more-likely-causal-genes",
+    "href": "index.html#scpredixcan-identifies-more-likely-causal-genes",
+    "title": "",
+    "section": "scPrediXcan identifies more likely causal genes",
+    "text": "scPrediXcan identifies more likely causal genes"
+  },
+  {
+    "objectID": "index.html#scpredixcan-outperforms-bulk-predixcan",
+    "href": "index.html#scpredixcan-outperforms-bulk-predixcan",
+    "title": "",
+    "section": "scPrediXcan outperforms bulk PrediXcan",
+    "text": "scPrediXcan outperforms bulk PrediXcan"
   }
 ]

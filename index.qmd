@@ -151,6 +151,10 @@ Yes!
 <br>
 <br>
 
+
+. . . 
+
+What is more important calibrating the type I error or increasing power?
 . . . 
 
 If you don't care about type I error, reject every test and you will have 100% power.
@@ -579,7 +583,7 @@ $~~~~~~~~~~~~~~~~$ ![](assets/enformer-dimensions-genomic-population-03.png){wid
 <!-- begin ----------------------------- -->
 ## Average correlation hides utility of unsigned of prediction {background-image=assets/slide-background.svg .nostretch }
 
-![](assets/enformer-vs-predixcan.png){width=60%}
+![](assets/enformer-vs-predixcan.png){width=50%}
 
 :::{.absolute right=0 bottom=0}
 [Huang et al 2023 NG]{style="font-size: 1em"}
@@ -669,11 +673,36 @@ Top site by correlation
 
 <!-- end ----------------------------- -->
 
+
 <!-- begin ----------------------------- -->
-## Identifying TF binding altered by ovarian cancer GWAS variants  {background-image=assets/slide-background.svg .nostretch }
+## AR binding sites associated with prostate cancer risk  {background-image=assets/slide-background.svg .nostretch }
+![](assets/tfxcan-manhattan-2.svg){width=120%}
+
+::: {.absolute bottom=-90 right=-18}
+![](assets/temi.png){width=200}
+:::
+
+<!-- end ----------------------------- -->
 
 
-![](assets/ovarian-tfxcan.png){width=110%}
+<!-- begin ----------------------------- -->
+## Concordance with CWAS results  {background-image=assets/slide-background.svg .nostretch }
+![](assets/ar-tfxcan-cwas-venn.svg){width=50%}
+
+
+::: {.absolute bottom=-90 right=-18}
+![](assets/temi.png){width=200}
+:::
+<!-- end ----------------------------- -->
+
+
+<!-- begin ----------------------------- -->
+## Can we identify TFs disrupted by GWAS variants?  {background-image=assets/slide-background.svg .nostretch }
+
+
+![](assets/ovarian-tfxcan.png){width=120%}
+
+
 
 ::: {.absolute bottom=-70 right=-18}
 ![](assets/sofia.png){width=200}
@@ -687,6 +716,10 @@ Top site by correlation
 
 <!-- begin ----------------------------- -->
 ## Context specific expression prediction {background-image=assets/slide-background.svg .nostretch }
+
+![](assets/aracena-data.png)
+[$~~~~~~~~~~~~~~~~$ Aracena et al 2023 NG]{style="font-size: 0.5em"}
+
 
 ::: {.absolute bottom=-70 right=-18}
 ![](assets/sai.png){width=200}
@@ -716,19 +749,80 @@ Top site by correlation
 ::: {.absolute bottom=-70 right=-70}
 ![](assets/charles-mengjie.png){width=400}
 :::
+<!-- end ----------------------------- -->
 
-<!-- :::{.absolute bottom=-60 right=200} -->
-<!--  [Charles Zhou]{style="font-size: 0.6em"} -->
-<!-- ::: -->
+
+<!-- begin ----------------------------- -->
+## scPrediXcan identifies more likely causal genes {background-image=assets/slide-background.svg .nostretch }
+
+![](assets/scPrediXcan-vs-bulk-PrediXcan-causal.png){width=100%}
+
+::: {.absolute bottom=-70 right=-70}
+![](assets/charles-mengjie.png){width=400}
+:::
+<!-- end ----------------------------- -->
+
+<!-- begin ----------------------------- -->
+## scPrediXcan outperforms bulk PrediXcan {background-image=assets/slide-background.svg .nostretch }
+
+![](assets/scPrediXcan-vs-bulk-PrediXcan-qqplot.png){width=100%}
+
+::: {.absolute bottom=-70 right=-70}
+![](assets/charles-mengjie.png){width=400}
+:::
 <!-- end ----------------------------- -->
 
 
 
 <!-- begin ----------------------------- -->
-# Questions? {background-color="white"}
+## Next steps {background-image=assets/slide-background.svg .nostretch }
+<!-- end ----------------------------- -->
+:::{.incremental}
+
+- cross species integration (Sabrina Mi/UCSD)
+
+- DNA language model training (Henry Raeder rotation project)
+
+- Multi-omic language model training (Rodrigo Bonazzola U Leeds)
+
+- Methylation prediction (Evan Wu Bioinformatics Core et al)
+
+- Summary based mixed effects model (Sabrina Mi)
+:::
+
+
+<!-- begin ----------------------------- -->
+## Conclusions {background-image=assets/slide-background.svg .nostretch }
+<!-- end ----------------------------- -->
+:::{.incremental}
+
+- We integrate GWAS and function genomics data to understand the biology of complex diseases
+
+- We train and use genetic predictors of molecular traits as powerful instruments
+
+- Deep learning methods that learn the grammar of DNA can help us address many limitations of population-based studies
+
+- All these methods only matter if we can answer questions that the field is interested in
+
+- Tell us about your scientific questions, our tools may be useful
+:::
+
+
+
+<!-- begin ----------------------------- -->
+## Thank you {background-image=assets/slide-background.svg .nostretch }
+![](assets/acknowledgement.png)
 <!-- end ----------------------------- -->
 
 
 
+
+
+<!--  ----------------------------- -->
+<!-- acknowledgements ----------------------------- -->
+<!-- :::{.absolute bottom=-60 right=200} -->
+<!--  [Charles Zhou]{style="font-size: 0.6em"} -->
+<!-- ::: -->
+<!-- end ----------------------------- -->
 
 
