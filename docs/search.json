@@ -472,8 +472,8 @@
     "objectID": "index.html#context-specific-expression-prediction",
     "href": "index.html#context-specific-expression-prediction",
     "title": "",
-    "section": "context specific expression prediction",
-    "text": "context specific expression prediction"
+    "section": "Context specific expression prediction",
+    "text": "Context specific expression prediction\n\n\n\n\nSai Gona"
   },
   {
     "objectID": "index.html#single-cell-expression-prediction-charles-zhou",
@@ -598,8 +598,8 @@
     "objectID": "index.html#mean-correlation-across-genes-vs.-across-individuals",
     "href": "index.html#mean-correlation-across-genes-vs.-across-individuals",
     "title": "",
-    "section": "Mean Correlation Across Genes vs. Across Individuals",
-    "text": "Mean Correlation Across Genes vs. Across Individuals"
+    "section": "Mean correlation across genes vs. across individuals",
+    "text": "Mean correlation across genes vs. across individuals"
   },
   {
     "objectID": "index.html#average-correlation-hides-utility-unsigned-of-prediction",
@@ -648,7 +648,7 @@
     "href": "index.html#enpact-method---training",
     "title": "",
     "section": "Enpact Method - Training",
-    "text": "Enpact Method - Training\n\nFor training, population average is used, so only a handful of samples are needed."
+    "text": "Enpact Method - Training\n\nFor training, population average is used, so only a handful of samples are needed"
   },
   {
     "objectID": "index.html#validation-of-enpact-prediction-compared-to-observed",
@@ -718,6 +718,20 @@
     "href": "index.html#identifying-tf-binding-altered-by-gwas-variants",
     "title": "",
     "section": "Identifying TF binding altered by GWAS variants",
-    "text": "Identifying TF binding altered by GWAS variants\n\n\n\n\n\nSofia Salazar"
+    "text": "Identifying TF binding altered by GWAS variants"
+  },
+  {
+    "objectID": "index.html#identifying-tf-binding-altered-by-ovarian-cancer-gwas-variants",
+    "href": "index.html#identifying-tf-binding-altered-by-ovarian-cancer-gwas-variants",
+    "title": "",
+    "section": "Identifying TF binding altered by ovarian cancer GWAS variants",
+    "text": "Identifying TF binding altered by ovarian cancer GWAS variants\n\n\n\n\n\nSofia Salazar"
+  },
+  {
+    "objectID": "index.html#tfxcan-identifies-tfbinding-associated-with-disease",
+    "href": "index.html#tfxcan-identifies-tfbinding-associated-with-disease",
+    "title": "",
+    "section": "TFXcan identifies TFBinding associated with disease",
+    "text": "TFXcan identifies TFBinding associated with disease"
   }
 ]

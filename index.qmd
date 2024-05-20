@@ -569,7 +569,7 @@ $~~~~~~~~~~~~~~~~$ ![](assets/enformer-dimensions-genomic-population-03.png){wid
 
 
 <!-- begin ----------------------------- -->
-## Mean Correlation Across Genes vs. Across Individuals {background-image=assets/slide-background.svg .nostretch }
+## Mean correlation across genes vs. across individuals {background-image=assets/slide-background.svg .nostretch }
 
 ![](assets/cross-individual-enformer-comparison-huang.png)
 
@@ -603,7 +603,7 @@ $~~~~~~~~~~~~~~~~$ ![](assets/enformer-dimensions-genomic-population-03.png){wid
 ![](assets/enpact-method.png)
 
 For training, population average is used, 
-so only a handful of samples are needed.
+so only a handful of samples are needed
 
 <!-- end ----------------------------- -->
 
@@ -659,14 +659,21 @@ Top site by correlation
 :::
 <!-- end ----------------------------- -->
 
+<!-- begin ----------------------------- -->
+## TFXcan identifies TFBinding associated with disease  {background-image=assets/slide-background.svg .nostretch }
+![](assets/tfxcan.svg){width=90%}
 
+::: {.absolute bottom=-90 right=-18}
+![](assets/temi.png){width=200}
+:::
 
+<!-- end ----------------------------- -->
 
 <!-- begin ----------------------------- -->
-## Identifying TF binding altered by GWAS variants  {background-image=assets/slide-background.svg .nostretch }
+## Identifying TF binding altered by ovarian cancer GWAS variants  {background-image=assets/slide-background.svg .nostretch }
 
 
-![](assets/ovarian-tfxcan.png)
+![](assets/ovarian-tfxcan.png){width=110%}
 
 ::: {.absolute bottom=-70 right=-18}
 ![](assets/sofia.png){width=200}
@@ -679,7 +686,7 @@ Top site by correlation
 
 
 <!-- begin ----------------------------- -->
-## Context specific expression prediction (Saideep Gona){background-image=assets/slide-background.svg .nostretch }
+## Context specific expression prediction {background-image=assets/slide-background.svg .nostretch }
 
 ::: {.absolute bottom=-70 right=-18}
 ![](assets/sai.png){width=200}
