@@ -95,7 +95,7 @@
     "href": "index.html#check-inflation-via-simulations",
     "title": "",
     "section": "Check inflation via simulations",
-    "text": "Check inflation via simulations\n\n\n TWAS model \n\\[\\begin{align*}\nY &= \\beta ~ T +  \\epsilon_\\text{twas} \\\\\n\nT &= \\sum_k \\gamma_k ~ X_k \\quad \\epsilon_\\text{twas} \\perp\\!\\!\\!\\perp T\n\\end{align*}\\]\n\nbeta = 0\nN = 1000\nM = 999\nmaf=0.4\netwas = rnorm(N)\ngamma = rnorm(M)\nX = matrix(rbinom(N*M,2,maf),N,M)\nT = X %*% gamma \nY = beta * T + etwas\nfit = lm(Y ~ T)\n\n\n\nlet’s simulate the regression 1000 times \n\n\n\n\n\n\n\nNo inflation"
+    "text": "Check inflation via simulations\n\n\n TWAS model \n\\[\\begin{align*}\nY &= \\beta ~ T +  \\epsilon_\\text{twas} \\\\\n\nT &= \\sum_k \\gamma_k ~ X_k \\quad \\epsilon_\\text{twas} \\perp\\!\\!\\!\\perp T\n\\end{align*}\\]\n\n\nbeta = 0\nN = 1000\nM = 999\nmaf=0.4\netwas = rnorm(N)\ngamma = rnorm(M)\nX = matrix(rbinom(N*M,2,maf),N,M)\nT = X %*% gamma \nY = beta * T + etwas\nfit = lm(Y ~ T)\n\n\n\n\nlet’s simulate the regression 1000 times \n\n\n\n\n\n\n\nNo inflation\n\n\n\\(E \\chi^2 = 1\\)"
   },
   {
     "objectID": "index.html#leeuw-et-als-reformulated-null-hypothesis",
@@ -333,7 +333,7 @@
     "href": "index.html#what-does-the-inflation-look-like",
     "title": "",
     "section": "What does the inflation look like",
-    "text": "What does the inflation look like\n\\[ E \\chi^2 \\propto N h^2 \\frac{1}{M} ?\\]\n\n\nif we do the math, we get \\[ E \\chi^2 \\approx\n1 +  N ~ h^2 ~\\left ( \\frac{\\tilde\\gamma' \\cdot \\Sigma^2  \\cdot \\tilde\\gamma}{\\tilde\\gamma' \\cdot  \\Sigma  \\cdot \\tilde\\gamma} \\frac{1}{M} \\right )\\]\nwe define the inflation factor \\(\\Phi\\) as \\[ \\Phi  = \\frac{\\tilde\\gamma' \\cdot \\Sigma^2  \\cdot \\tilde\\gamma}{\\tilde\\gamma' \\cdot  \\Sigma  \\cdot \\tilde\\gamma} \\frac{1}{M} \\]\nwhen SNPs are independent \\(\\Phi = \\frac{1}{M}\\) we get the expression we guessed \\(E \\chi^2 = 1 + N h^2 \\frac{1}{M}\\)"
+    "text": "What does the inflation look like\n\\[ E \\chi^2 \\approx N h^2 \\frac{1}{M} ?\\]\n\nif we do the math, we get \\[ E \\chi^2 \\approx\n1 +  N ~ h^2 \\frac{1}{M} \\Phi_1\\]\n\n\n\\[ \\text{where } \\Phi_1  = \\frac{\\tilde\\gamma' \\cdot \\Sigma^2  \\cdot \\tilde\\gamma}{\\tilde\\gamma' \\cdot  \\Sigma  \\cdot \\tilde\\gamma}  \\]\n\n\nwhen SNPs are independent, \\(\\Phi_1 = 1\\) so that \\(~~~E \\chi^2 = 1 + N h^2 \\frac{1}{M}\\) pretty close to our guess"
   },
   {
     "objectID": "index.html#what-are-the-properties-of-the-inflation-factor",
@@ -347,14 +347,14 @@
     "href": "index.html#we-can-derive-a-more-general-expression",
     "title": "",
     "section": "We can derive a more general expression",
-    "text": "We can derive a more general expression\nfor the TWAS χ2 Statistic with Polygenic Y & Noisy Mediator\n\n\\[E~\\chi^2_\\text{twas} \\approx 1  + N ~h^2_\\delta ~ \\frac{\\Phi(\\text{gene})}{1 - \\beta^2\\tau^2} +  N ~ \\frac{\\beta^2 }{1 - \\beta^2\\tau^2}~\\tau^2\\]   where the precision \\(\\tau^2 = \\text{signal to noise ratio} = \\frac{\\text{var}(T)}{\\text{var}(\\tilde{T})}\\)"
+    "text": "We can derive a more general expression\n\n\\[E~\\chi^2_\\text{twas} \\approx 1  + N ~h^2_\\delta \\frac{1}{M}~ \\frac{\\Phi_1}{1 - \\beta^2\\tau^2} +  N ~ \\frac{\\beta^2 }{1 - \\beta^2\\tau^2}~\\tau^2\\]\n Polygenic \\(Y\\) and Noisy Mediator; \\(\\tau^2 =\\text{precision} = \\text{signal to noise ratio} = \\frac{\\text{var}(T)}{\\text{var}(\\tilde{T})}\\)"
   },
   {
     "objectID": "index.html#can-we-correct-the-inflation",
     "href": "index.html#can-we-correct-the-inflation",
     "title": "",
     "section": "Can we correct the inflation?",
-    "text": "Can we correct the inflation?\n\n\n\nYes! \nCalculate the non centrality parameter \nUse noncentral χ2 to compute p-values \n\\(\\texttt{pchisq(chi2, ncp=N*h2Y*phi, df=1, lower.tail=FALSE)}\\)"
+    "text": "Can we correct the inflation?\n\n\n\nYes! \nUse noncentral χ2 to compute p-values \n\\(\\texttt{pchisq(chi2, ncp=N*h2Y*phi0, df=1, lower.tail=FALSE)}\\)"
   },
   {
     "objectID": "index.html#the-story-doesnt-end-there-joint-work-with",
@@ -362,5 +362,362 @@
     "title": "",
     "section": "The story doesn’t end there, joint work with",
     "text": "The story doesn’t end there, joint work with"
+  },
+  {
+    "objectID": "index.html#limitations-of-twas-1",
+    "href": "index.html#limitations-of-twas-1",
+    "title": "",
+    "section": "Limitations of TWAS",
+    "text": "Limitations of TWAS\n\n\n\n\nbulk RNA may not reveal disease relevant regulation  \ncontext-specific regulation is likely to be more relevant  \ntranscription factor binding alteration may affect disease\n\n\n\n\nscPrediXcan  \nconteXcan  \nTFXcan\n\n\n\n\n\n Generating data with sufficient reads and sample sizes is too costly"
+  },
+  {
+    "objectID": "index.html#single-cell-expression",
+    "href": "index.html#single-cell-expression",
+    "title": "",
+    "section": "single Cell expression",
+    "text": "single Cell expression"
+  },
+  {
+    "objectID": "index.html#context-specific-expression",
+    "href": "index.html#context-specific-expression",
+    "title": "",
+    "section": "context specific expression",
+    "text": "context specific expression"
+  },
+  {
+    "objectID": "index.html#can-predictors-trained-without-using-genetic-variation-capture-population-variation",
+    "href": "index.html#can-predictors-trained-without-using-genetic-variation-capture-population-variation",
+    "title": "",
+    "section": "Can predictors trained without using genetic variation capture population variation?",
+    "text": "Can predictors trained without using genetic variation capture population variation?"
+  },
+  {
+    "objectID": "index.html#check-calibration-of-twas-type-i-error",
+    "href": "index.html#check-calibration-of-twas-type-i-error",
+    "title": "",
+    "section": "Check calibration of TWAS type I error",
+    "text": "Check calibration of TWAS type I error\n\n\n TWAS model \n\\[\\begin{align*}\nY &= \\beta ~ T +  \\epsilon_\\text{twas} \\\\\n\nT &= \\sum_k X_k ~  \\gamma_k  \\quad \\epsilon_\\text{twas} \\perp\\!\\!\\!\\perp T\n\\end{align*}\\]\n\n\nbeta = 0\nN = 1000\nM = 999\nmaf=0.4\netwas = rnorm(N)\ngamma = rnorm(M)\nX = matrix(rbinom(N*M,2,maf),N,M)\nT = X %*% gamma \nY = beta * T + etwas\nfit = lm(Y ~ T)\n\n\n\n calculate \\(\\chi^2 = \\hat{\\beta}/\\text{se}(\\hat\\beta)^2\\)\n\n\n\nrepeat 1000 times\n\n\nunder the null, we expect \\(\\chi^2\\) to follow \\(\\chi^2_1\\) and \\(E \\chi^2 = 1\\)\n\n\n\n\n\n\n\n\\(~~~~~~~~~~~~~~\\)No inflation"
+  },
+  {
+    "objectID": "index.html#what-happens-with-calibration-if-y-is-polygenic",
+    "href": "index.html#what-happens-with-calibration-if-y-is-polygenic",
+    "title": "",
+    "section": "What happens with calibration if Y is polygenic",
+    "text": "What happens with calibration if Y is polygenic\n\n\n\\[\\begin{align*}\n\nY &= \\beta ~ T + \\epsilon_\\text{twas}\\\\\n\n\nT &= \\sum_k X_k ~ \\gamma_k\n\n\\end{align*}\\]\n\n\\[\\epsilon_\\text{twas} = \\sum_k X_k ~ \\delta_k + \\epsilon\\]\n\n\n\\[\\epsilon, ~\\gamma,~ \\delta   \\perp\\!\\!\\!\\perp ~ \\therefore ~ T \\perp\\!\\!\\!\\perp \\epsilon_\\text{twas}\\]\n\n\n\nbeta = 0\nN = 1000\nM = 999\nmaf=0.4\nepsi = rnorm(N)\ngamma = rnorm(M)\ndelta = rnorm(M)\nX = matrix(rbinom(N*M,2,maf),N,M)\nT = X %*% gamma \nY = beta * T + X %*% delta + epsi\nfit = lm(Y ~ T)\n\n\n\n\n\n\n\n\n\n\n\n\\(~~~~~~~~\\)Now we do see inflation"
+  },
+  {
+    "objectID": "index.html#what-if-y-is-polygenic",
+    "href": "index.html#what-if-y-is-polygenic",
+    "title": "",
+    "section": "What if Y is polygenic?",
+    "text": "What if Y is polygenic?\n\n\n\\[\\begin{align*}\n\nY &= \\beta ~ T + \\epsilon_\\text{twas}\\\\\n\n\nT &= \\sum_k X_k ~ \\gamma_k\n\n\\end{align*}\\]\n\n\\[\\epsilon_\\text{twas} = \\sum_k X_k ~ \\delta_k + \\epsilon\\]\n\n\n\\[\\epsilon, ~\\gamma,~ \\delta   \\perp\\!\\!\\!\\perp ~ \\therefore ~ T \\perp\\!\\!\\!\\perp \\epsilon_\\text{twas}\\]\n\n\n\nbeta = 0\nN = 1000\nM = 999\nmaf=0.4\nepsi = rnorm(N)\ngamma = rnorm(M)\ndelta = rnorm(M)\nX = matrix(rbinom(N*M,2,maf),N,M)\nT = X %*% gamma \nY = beta * T + X %*% delta + epsi\nfit = lm(Y ~ T)\n\n\n\n\n\n\n\n\n\n\n\n\\(~~~~~~~~\\)Now we do see inflation"
+  },
+  {
+    "objectID": "index.html#on-the-problem-of-inflation-in-twas",
+    "href": "index.html#on-the-problem-of-inflation-in-twas",
+    "title": "",
+    "section": "On the problem of inflation in TWAS",
+    "text": "On the problem of inflation in TWAS"
+  },
+  {
+    "objectID": "index.html#on-the-problem-of-inflation-in-twas-under-review",
+    "href": "index.html#on-the-problem-of-inflation-in-twas-under-review",
+    "title": "",
+    "section": "On the problem of inflation in TWAS (under review)",
+    "text": "On the problem of inflation in TWAS (under review)"
+  },
+  {
+    "objectID": "index.html#ratxcan-a-framework-for-cross-species-integration-to-be-submitted",
+    "href": "index.html#ratxcan-a-framework-for-cross-species-integration-to-be-submitted",
+    "title": "",
+    "section": "RatXcan: A framework for cross-species integration (to be submitted)",
+    "text": "RatXcan: A framework for cross-species integration (to be submitted)"
+  },
+  {
+    "objectID": "index.html#ratxcan-inflation-and-relatedness-correction-to-be-submitted",
+    "href": "index.html#ratxcan-inflation-and-relatedness-correction-to-be-submitted",
+    "title": "",
+    "section": "RatXcan: inflation and relatedness correction (to be submitted)",
+    "text": "RatXcan: inflation and relatedness correction (to be submitted)"
+  },
+  {
+    "objectID": "index.html#ratxcan-inflation-correction-with-mixed-effects-model",
+    "href": "index.html#ratxcan-inflation-correction-with-mixed-effects-model",
+    "title": "",
+    "section": "RatXcan: inflation correction with mixed effects model",
+    "text": "RatXcan: inflation correction with mixed effects model"
+  },
+  {
+    "objectID": "index.html#ratxcan-corrects-inflation-with-mixed-effects-model",
+    "href": "index.html#ratxcan-corrects-inflation-with-mixed-effects-model",
+    "title": "",
+    "section": "RatXcan corrects inflation with mixed effects model",
+    "text": "RatXcan corrects inflation with mixed effects model"
+  },
+  {
+    "objectID": "index.html#ratxcan-corrects-inflation-with-mixed-effects-approach",
+    "href": "index.html#ratxcan-corrects-inflation-with-mixed-effects-approach",
+    "title": "",
+    "section": "RatXcan corrects inflation with mixed effects approach",
+    "text": "RatXcan corrects inflation with mixed effects approach"
+  },
+  {
+    "objectID": "index.html#single-cell-expression-prediction",
+    "href": "index.html#single-cell-expression-prediction",
+    "title": "",
+    "section": "Single cell expression prediction",
+    "text": "Single cell expression prediction"
+  },
+  {
+    "objectID": "index.html#context-specific-expression-prediction",
+    "href": "index.html#context-specific-expression-prediction",
+    "title": "",
+    "section": "context specific expression prediction",
+    "text": "context specific expression prediction"
+  },
+  {
+    "objectID": "index.html#single-cell-expression-prediction-charles-zhou",
+    "href": "index.html#single-cell-expression-prediction-charles-zhou",
+    "title": "",
+    "section": "Single cell expression prediction (Charles Zhou)",
+    "text": "Single cell expression prediction (Charles Zhou)"
+  },
+  {
+    "objectID": "index.html#context-specific-expression-prediction-saideep-gona",
+    "href": "index.html#context-specific-expression-prediction-saideep-gona",
+    "title": "",
+    "section": "Context specific expression prediction (Saideep Gona)",
+    "text": "Context specific expression prediction (Saideep Gona)\n\n\n\n\nSai Gona"
+  },
+  {
+    "objectID": "index.html#temidayo-adeluwa",
+    "href": "index.html#temidayo-adeluwa",
+    "title": "",
+    "section": "(Temidayo Adeluwa)",
+    "text": "(Temidayo Adeluwa)"
+  },
+  {
+    "objectID": "index.html#transcription-factor-binding-prediction-temidayo-adeluwa",
+    "href": "index.html#transcription-factor-binding-prediction-temidayo-adeluwa",
+    "title": "",
+    "section": "Transcription factor binding prediction (Temidayo Adeluwa)",
+    "text": "Transcription factor binding prediction (Temidayo Adeluwa)"
+  },
+  {
+    "objectID": "index.html#enformer-predicts-epigenetic-features-from-dna-sequence",
+    "href": "index.html#enformer-predicts-epigenetic-features-from-dna-sequence",
+    "title": "",
+    "section": "Enformer predicts epigenetic features from DNA sequence",
+    "text": "Enformer predicts epigenetic features from DNA sequence\n\n250 million parameters, 4.6K TPU hours\n\n\\(~~~~~~~~~~~~~~~~\\) Avsec et al Nature Methods 2021"
+  },
+  {
+    "objectID": "index.html#enformer-predicts-epigenetic-features-from-dna-sequence-1",
+    "href": "index.html#enformer-predicts-epigenetic-features-from-dna-sequence-1",
+    "title": "",
+    "section": "Enformer predicts epigenetic features from DNA sequence",
+    "text": "Enformer predicts epigenetic features from DNA sequence\n\\(~~~~~~\\) \n\n\\(~~~~~~~~~~~~~~~~\\) Avsec et al Nature Methods 2021"
+  },
+  {
+    "objectID": "index.html#enformer-trained-to-perform-well-across-the-genome",
+    "href": "index.html#enformer-trained-to-perform-well-across-the-genome",
+    "title": "",
+    "section": "Enformer trained to perform well across the genome",
+    "text": "Enformer trained to perform well across the genome\n\\(~~~~~~~~~~~~~~~~\\)"
+  },
+  {
+    "objectID": "index.html#enformer-trained-to-perform-well-across-the-genome-1",
+    "href": "index.html#enformer-trained-to-perform-well-across-the-genome-1",
+    "title": "",
+    "section": "Enformer trained to perform well across the genome",
+    "text": "Enformer trained to perform well across the genome\n\\(~~~~~~~~~~~~~~~~\\)"
+  },
+  {
+    "objectID": "index.html#enformer-trained-to-perform-well-across-the-genome-2",
+    "href": "index.html#enformer-trained-to-perform-well-across-the-genome-2",
+    "title": "",
+    "section": "Enformer trained to perform well across the genome",
+    "text": "Enformer trained to perform well across the genome\n\\(~~~~~~~~~~~~~~~~\\)"
+  },
+  {
+    "objectID": "index.html#can-enformer-predict-variation-across-people",
+    "href": "index.html#can-enformer-predict-variation-across-people",
+    "title": "",
+    "section": "Can Enformer predict variation across people",
+    "text": "Can Enformer predict variation across people\n\\(~~~~~~~~\\)"
+  },
+  {
+    "objectID": "index.html#can-enformer-predict-variation-across-people-1",
+    "href": "index.html#can-enformer-predict-variation-across-people-1",
+    "title": "",
+    "section": "Can Enformer predict variation across people",
+    "text": "Can Enformer predict variation across people\n\\(~~~~~~~\\)"
+  },
+  {
+    "objectID": "index.html#can-enformer-predict-variation-across-people---pex6",
+    "href": "index.html#can-enformer-predict-variation-across-people---pex6",
+    "title": "",
+    "section": "Can Enformer predict variation across people - PEX6",
+    "text": "Can Enformer predict variation across people - PEX6"
+  },
+  {
+    "objectID": "index.html#enformer-predicts-with-inconsistent-sign-of-correlation---nudt2",
+    "href": "index.html#enformer-predicts-with-inconsistent-sign-of-correlation---nudt2",
+    "title": "",
+    "section": "Enformer predicts with inconsistent sign of correlation - NUDT2",
+    "text": "Enformer predicts with inconsistent sign of correlation - NUDT2"
+  },
+  {
+    "objectID": "index.html#can-enformer-prediction-correlates-significantly-with-observation---pex6",
+    "href": "index.html#can-enformer-prediction-correlates-significantly-with-observation---pex6",
+    "title": "",
+    "section": "Can Enformer prediction correlates significantly with observation - PEX6",
+    "text": "Can Enformer prediction correlates significantly with observation - PEX6"
+  },
+  {
+    "objectID": "index.html#enformer-can-predict-variation-across-individuals---pex6",
+    "href": "index.html#enformer-can-predict-variation-across-individuals---pex6",
+    "title": "",
+    "section": "Enformer can predict variation across individuals - PEX6",
+    "text": "Enformer can predict variation across individuals - PEX6"
+  },
+  {
+    "objectID": "index.html#but-correlation-can-be-negative---nudt2",
+    "href": "index.html#but-correlation-can-be-negative---nudt2",
+    "title": "",
+    "section": "but correlation can be negative - NUDT2",
+    "text": "but correlation can be negative - NUDT2"
+  },
+  {
+    "objectID": "index.html#personal-transcriptome-poorly-explained",
+    "href": "index.html#personal-transcriptome-poorly-explained",
+    "title": "",
+    "section": "Personal transcriptome poorly explained",
+    "text": "Personal transcriptome poorly explained"
+  },
+  {
+    "objectID": "index.html#mean-correlation-across-genes-vs.-across-individuals",
+    "href": "index.html#mean-correlation-across-genes-vs.-across-individuals",
+    "title": "",
+    "section": "Mean Correlation Across Genes vs. Across Individuals",
+    "text": "Mean Correlation Across Genes vs. Across Individuals"
+  },
+  {
+    "objectID": "index.html#average-correlation-hides-utility-unsigned-of-prediction",
+    "href": "index.html#average-correlation-hides-utility-unsigned-of-prediction",
+    "title": "",
+    "section": "Average correlation hides utility unsigned of prediction",
+    "text": "Average correlation hides utility unsigned of prediction\n\n\nHuang et al 2023 NG\n\n\nIs the Glass Half Empty or Half Full?"
+  },
+  {
+    "objectID": "index.html#average-correlation-hides-utility-of-unsigned-of-prediction",
+    "href": "index.html#average-correlation-hides-utility-of-unsigned-of-prediction",
+    "title": "",
+    "section": "Average correlation hides utility of unsigned of prediction",
+    "text": "Average correlation hides utility of unsigned of prediction\n\n\nHuang et al 2023 NG"
+  },
+  {
+    "objectID": "index.html#average-correlation-hides-utility-of-unsigned-of-prediction-1",
+    "href": "index.html#average-correlation-hides-utility-of-unsigned-of-prediction-1",
+    "title": "",
+    "section": "Average correlation hides utility of unsigned of prediction",
+    "text": "Average correlation hides utility of unsigned of prediction\n\n\nhttps://what-if.xkcd.com/6/"
+  },
+  {
+    "objectID": "index.html#enpact-method",
+    "href": "index.html#enpact-method",
+    "title": "",
+    "section": "Enpact Method",
+    "text": "Enpact Method"
+  },
+  {
+    "objectID": "index.html#identifying-tf-binding-altered-by-gwas-variants-sofia-salazar",
+    "href": "index.html#identifying-tf-binding-altered-by-gwas-variants-sofia-salazar",
+    "title": "",
+    "section": "Identifying TF binding altered by GWAS variants (Sofia Salazar)",
+    "text": "Identifying TF binding altered by GWAS variants (Sofia Salazar)\n\n\n\n\nSofia Salazar"
+  },
+  {
+    "objectID": "index.html#enpact-method-1",
+    "href": "index.html#enpact-method-1",
+    "title": "",
+    "section": "Enpact Method",
+    "text": "Enpact Method"
+  },
+  {
+    "objectID": "index.html#enpact-method---training",
+    "href": "index.html#enpact-method---training",
+    "title": "",
+    "section": "Enpact Method - Training",
+    "text": "Enpact Method - Training\n\nFor training, population average is used, so only a handful of samples are needed."
+  },
+  {
+    "objectID": "index.html#validation-of-enpact-prediction-compared-to-observed",
+    "href": "index.html#validation-of-enpact-prediction-compared-to-observed",
+    "title": "",
+    "section": "Validation of Enpact prediction compared to observed",
+    "text": "Validation of Enpact prediction compared to observed\n\n\n\n\n\nPrediction performance is comparable to population-based method with 130 samples"
+  },
+  {
+    "objectID": "index.html#validation-of-enpact-prediction-compared-to-other-predictors",
+    "href": "index.html#validation-of-enpact-prediction-compared-to-other-predictors",
+    "title": "",
+    "section": "Validation of Enpact prediction compared to other predictors",
+    "text": "Validation of Enpact prediction compared to other predictors\n\n\nTop site by correlation"
+  },
+  {
+    "objectID": "index.html#validation-of-enpact-prediction-compared-to-other-predictors-1",
+    "href": "index.html#validation-of-enpact-prediction-compared-to-other-predictors-1",
+    "title": "",
+    "section": "Validation of Enpact prediction compared to other predictors",
+    "text": "Validation of Enpact prediction compared to other predictors"
+  },
+  {
+    "objectID": "index.html#validation-of-enpact-prediction-compared-to-other-predictors-2",
+    "href": "index.html#validation-of-enpact-prediction-compared-to-other-predictors-2",
+    "title": "",
+    "section": "Validation of Enpact prediction compared to other predictors",
+    "text": "Validation of Enpact prediction compared to other predictors"
+  },
+  {
+    "objectID": "index.html#most-enpact-predictors-correlate-significantly-with-cwas",
+    "href": "index.html#most-enpact-predictors-correlate-significantly-with-cwas",
+    "title": "",
+    "section": "Most enpact predictors correlate significantly with CWAS",
+    "text": "Most enpact predictors correlate significantly with CWAS"
+  },
+  {
+    "objectID": "index.html#enpact-cwas-correlation-sign-is-also-inconsistent-background-imageassetsslide-background.svg-.nostretch",
+    "href": "index.html#enpact-cwas-correlation-sign-is-also-inconsistent-background-imageassetsslide-background.svg-.nostretch",
+    "title": "",
+    "section": "Enpact CWAS correlation sign is also inconsistent {background-image=assets/slide-background.svg .nostretch }",
+    "text": "Enpact CWAS correlation sign is also inconsistent {background-image=assets/slide-background.svg .nostretch }"
+  },
+  {
+    "objectID": "index.html#enpact-cwas-correlation-sign-is-also-inconsistent",
+    "href": "index.html#enpact-cwas-correlation-sign-is-also-inconsistent",
+    "title": "",
+    "section": "Enpact CWAS correlation sign is also inconsistent",
+    "text": "Enpact CWAS correlation sign is also inconsistent"
+  },
+  {
+    "objectID": "index.html#single-cell-expression-prediction-and-scpredixcan",
+    "href": "index.html#single-cell-expression-prediction-and-scpredixcan",
+    "title": "",
+    "section": "Single cell expression prediction and scPrediXcan",
+    "text": "Single cell expression prediction and scPrediXcan"
+  },
+  {
+    "objectID": "index.html#single-cell-expression-prediction-and-association-with-disease",
+    "href": "index.html#single-cell-expression-prediction-and-association-with-disease",
+    "title": "",
+    "section": "Single cell expression prediction and association with disease",
+    "text": "Single cell expression prediction and association with disease"
+  },
+  {
+    "objectID": "index.html#identifying-tf-binding-altered-by-gwas-variants",
+    "href": "index.html#identifying-tf-binding-altered-by-gwas-variants",
+    "title": "",
+    "section": "Identifying TF binding altered by GWAS variants",
+    "text": "Identifying TF binding altered by GWAS variants\n\n\n\n\n\nSofia Salazar"
   }
 ]

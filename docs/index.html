@@ -391,20 +391,31 @@
     <div class="slides">
 
 
-<section>
-<section id="on-the-problem-of-inflation-in-twas" class="title-slide slide level1 center" data-background-color="white">
-<h1>On the Problem of Inflation in TWAS</h1>
+<section class="slide level2">
+
+<!-- begin ----------------------------- -->
+</section>
+<section id="im-lab-work-in-progress" class="title-slide slide level1 center" data-background-color="white">
+<h1>Im Lab Work in Progress</h1>
 <p><br></p>
 <h2>
-STATGEN 2024, Pittsburgh
+Genetic Medicine, UChicago
 </h2>
-<!-- <h4>Session: Identification of causal molecular phenotypes underlying complex diseases using multi-omics QTL data</h4> -->
 <h3>
-2023-05-01 Wednesday
+2023-05-20 Wednesday
 </h3>
 <h3>
 Hae Kyung Im
 </h3>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
+</section>
+
+<section>
+<section id="goal-develop-statistical-methods-to-link-genetic-variation-with-phenotypic-variation" class="title-slide slide level1 center" data-background-color="white">
+<h1>Goal: develop statistical methods to link genetic variation with phenotypic variation</h1>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
 </section>
 <section id="what-is-twas" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
 <h2>What is TWAS?</h2>
@@ -414,7 +425,8 @@ Hae Kyung Im
 <div class="fragment">
 <p><br> GWAS discoveries continue to grow but causal genes are not known</p>
 <p><img data-src="assets/gwas-catalog-2024-04-10.png" style="width:50.0%"></p>
-<p><small>downloaded April 2024 from GWAS Catalog </small></p>
+<p><small>downloaded April 2024 from GWAS Catalog </small> <!-- end ----------------------------- --></p>
+<!-- begin ----------------------------- -->
 </div>
 </section>
 <section id="twas-uses-gwas-data-to-find-genes-associated-with-trait" class="slide level2" data-background-image="assets/slide-background.svg">
@@ -423,34 +435,23 @@ Hae Kyung Im
 <div class="absolute fragment fade-out" style="left: 0px; bottom: 0px; ">
 <p><img data-src="assets/blank-rectangle.png" alt="blank" width="1600" height="380"></p>
 </div>
-<!-- :::{.absolute bottom=200 left=1200 .fragment .fade-in} -->
-<!-- :::{.fragment .fade-out} -->
-<!-- - RNA-Seq is too expensive -->
-<!-- - Many tissues such has brain, pancreas, etc are not accessible -->
-<!-- - Differentially expressed genes can be consequence of disease status -->
-<!-- ::: -->
-<!-- ::: -->
-<!-- ::: {.absolute bottom=0 left=0 .fragment .fade-out} -->
-<!-- ![](assets/blank-rectangle.png){width="370" height="440" fig-alt="blank"} -->
-<!-- ::: -->
-<!-- ::: {.absolute bottom=260 left=360 .fragment .fade-out} -->
-<!-- ![](assets/blank-rectangle.png){width="110" height="30" fig-alt="blank"} -->
-<!-- ::: -->
-<!-- ::: {.absolute bottom=210 left=720 .fragment .fade-out} -->
-<!-- ![](assets/blank-rectangle.png){width="210" height="50" fig-alt="blank"} -->
-<!-- ::: -->
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
 </section>
 <section id="gene-expression-can-be-predicted-from-genotype" class="slide level2" data-background-image="assets/slide-background.svg">
 <h2>Gene expression can be predicted from genotype</h2>
 
+<!-- begin ----------------------------- -->
 <img data-src="assets/reference-transcriptome-gtex.png" class="r-stretch"></section>
 <section id="some-genes-are-very-well-predicted" class="slide level2" data-background-image="assets/slide-background.svg">
 <h2>Some genes are very well predicted</h2>
 
+<!-- begin ----------------------------- -->
 <img data-src="assets/performance-top-genes.png" class="r-stretch"></section>
 <section id="accuracy-of-prediction-depends-on-heritability" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
 <h2>Accuracy of prediction depends on heritability</h2>
 <p><img data-src="assets/performance-all-genes.png" style="width:75.0%"></p>
+<!-- begin ----------------------------- -->
 </section>
 
 
@@ -462,46 +463,34 @@ Hae Kyung Im
 <div class="fragment">
 <p>it uses genetic predictors of omic traits to bridge the gap between genotype and phenotype</p>
 </div>
-</section>
-<section id="leeuw-et-al-questioned-the-validity-of-twas" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>Leeuw et al questioned the validity of TWAS</h2>
-<div class="columns">
-<div class="column" style="width:70%;">
-<p><img data-src="assets/leeuws-twas-validity.png"></p>
-</div><div class="column" style="width:30%;">
-<p><br> <br> <br> Leewu et al claim that noise in predictors cause inflation of TWAS</p>
+</section></section>
+<section>
+<section id="short-interlude-in-statistical-genetics" class="title-slide slide level1 center" data-background-color="white">
+<h1>Short interlude in statistical genetics</h1>
+<p><br></p>
+<div class="fragment">
+<p>Is it important to have a calibrated type I error (false positive rate)?</p>
+<p><br></p>
 </div>
+<div class="fragment">
+<p>Yes! <br> <br></p>
 </div>
-<!-- ## Why should we worry about inflation? {background-image=assets/slide-background.svg} -->
-<!-- . . . -->
-<!-- <br> -->
-<!-- <br> -->
-<!-- <center> -->
-<!-- because none of the *WAS results would be valid -->
-<!-- </center> -->
-<!-- ## Hey, type I error is important but I care more about power  {background-image=assets/slide-background.svg} -->
-<!-- . . . -->
-<!-- <br> -->
-<!-- <br> -->
-<!-- <center> A reviewer actually wrote this </center> -->
-<!-- . . . -->
-<!-- <br>  -->
-<!-- <br>  -->
-<!-- <center> We will offer them a magical test with 100% power -->
-<!-- <br>  -->
-<!-- <br>  -->
-<!-- just reject the null every time </center> -->
+<div class="fragment">
+<p>If you don’t care about type I error, reject every test and you will have 100% power. <!-- end ----------------------------- --></p>
+<!-- begin ----------------------------- -->
+</div>
 </section>
-<section id="check-inflation-via-simulations" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>Check inflation via simulations</h2>
+<section id="check-calibration-of-twas-type-i-error" class="slide level2" data-background-image="assets/slide-background.svg">
+<h2>Check calibration of TWAS type I error</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 <p><br> TWAS model <br></p>
 <p><span class="math display">\[\begin{align*}
 Y &amp;= \beta ~ T +  \epsilon_\text{twas} \\
 
-T &amp;= \sum_k \gamma_k ~ X_k \quad \epsilon_\text{twas} \perp\!\!\!\perp T
+T &amp;= \sum_k X_k ~  \gamma_k  \quad \epsilon_\text{twas} \perp\!\!\!\perp T
 \end{align*}\]</span></p>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>beta <span class="ot">=</span> <span class="dv">0</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>N <span class="ot">=</span> <span class="dv">1000</span></span>
@@ -514,9 +503,16 @@ T &amp;= \sum_k \gamma_k ~ X_k \quad \epsilon_\text{twas} \perp\!\!\!\perp T
 <span id="cb1-9"><a href="#cb1-9"></a>Y <span class="ot">=</span> beta <span class="sc">*</span> T <span class="sc">+</span> etwas</span>
 <span id="cb1-10"><a href="#cb1-10"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(Y <span class="sc">~</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+<div class="fragment">
+<p><br> calculate <span class="math inline">\(\chi^2 = \hat{\beta}/\text{se}(\hat\beta)^2\)</span></p>
+</div>
 </div><div class="column" style="width:60%;">
 <div class="fragment">
-<p>let’s simulate the regression 1000 times <br></p>
+<p>repeat 1000 times</p>
+</div>
+<div class="fragment">
+<p>under the null, we expect <span class="math inline">\(\chi^2\)</span> to follow <span class="math inline">\(\chi^2_1\)</span> and <span class="math inline">\(E \chi^2 = 1\)</span></p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="index_files/figure-revealjs/unnamed-chunk-1-1.png" width="960"></p>
@@ -524,39 +520,48 @@ T &amp;= \sum_k \gamma_k ~ X_k \quad \epsilon_\text{twas} \perp\!\!\!\perp T
 </div>
 </div>
 <div class="fragment">
-<p>No inflation</p>
+<p><span class="math inline">\(~~~~~~~~~~~~~~\)</span><span style="color: blue; font-size: 2em;">No inflation</span></p>
 </div>
 </div>
 </div>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
 </section>
-<section id="what-if-we-use-a-noisy-predictor" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>What if we use a noisy predictor?</h2>
+<section id="what-if-y-is-polygenic" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>What if Y is polygenic?</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
-<p><br> TWAS model <br></p>
 <p><span class="math display">\[\begin{align*}
-Y &amp;= \beta ~ T +  \epsilon_\text{twas} \\
 
-\tilde{T} &amp;= \sum_k (\gamma_k + e) ~ X_k \\
+Y &amp;= \beta ~ T + \epsilon_\text{twas}\\
 
-e &amp;\perp\!\!\!\perp Y \quad \epsilon_\text{twas} \perp\!\!\!\perp T
+
+T &amp;= \sum_k X_k ~ \gamma_k
+
 \end{align*}\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[\epsilon_\text{twas} = \sum_k X_k ~ \delta_k + \epsilon\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\epsilon, ~\gamma,~ \delta   \perp\!\!\!\perp ~ \therefore ~ T \perp\!\!\!\perp \epsilon_\text{twas}\]</span></p>
+</div>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>beta <span class="ot">=</span> <span class="dv">0</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>N <span class="ot">=</span> <span class="dv">1000</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a>M <span class="ot">=</span> <span class="dv">999</span></span>
 <span id="cb2-4"><a href="#cb2-4"></a>maf<span class="ot">=</span><span class="fl">0.4</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a>etwas <span class="ot">=</span> <span class="fu">rnorm</span>(N)</span>
+<span id="cb2-5"><a href="#cb2-5"></a>epsi <span class="ot">=</span> <span class="fu">rnorm</span>(N)</span>
 <span id="cb2-6"><a href="#cb2-6"></a>gamma <span class="ot">=</span> <span class="fu">rnorm</span>(M)</span>
-<span id="cb2-7"><a href="#cb2-7"></a>e <span class="ot">=</span> <span class="fu">rnorm</span>(M)</span>
+<span id="cb2-7"><a href="#cb2-7"></a>delta <span class="ot">=</span> <span class="fu">rnorm</span>(M)</span>
 <span id="cb2-8"><a href="#cb2-8"></a>X <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">rbinom</span>(N<span class="sc">*</span>M,<span class="dv">2</span>,maf),N,M)</span>
-<span id="cb2-9"><a href="#cb2-9"></a>Ttilde <span class="ot">=</span> X <span class="sc">%*%</span> (gamma <span class="sc">+</span> e)</span>
-<span id="cb2-10"><a href="#cb2-10"></a>Y <span class="ot">=</span> beta <span class="sc">*</span> Ttilde <span class="sc">+</span> etwas</span>
-<span id="cb2-11"><a href="#cb2-11"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(Y <span class="sc">~</span> Ttilde)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-9"><a href="#cb2-9"></a>T <span class="ot">=</span> X <span class="sc">%*%</span> gamma </span>
+<span id="cb2-10"><a href="#cb2-10"></a>Y <span class="ot">=</span> beta <span class="sc">*</span> T <span class="sc">+</span> X <span class="sc">%*%</span> delta <span class="sc">+</span> epsi</span>
+<span id="cb2-11"><a href="#cb2-11"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(Y <span class="sc">~</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="fragment">
-<p>let’s simulate the regression 1000 times <br></p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="index_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
@@ -564,150 +569,298 @@ e &amp;\perp\!\!\!\perp Y \quad \epsilon_\text{twas} \perp\!\!\!\perp T
 </div>
 </div>
 <div class="fragment">
-<p>No inflation</p>
-</div>
-<div class="fragment">
-<p>if error in T is independent of Y,</p>
-<p>there is no reason to see inflation</p>
+<p><span class="math inline">\(~~~~~~~~\)</span><span style="color: blue; font-size: 2em;">Now we do see inflation</span></p>
 </div>
 </div>
 </div>
-</section>
-<section id="leeuw-et-als-reformulated-null-hypothesis" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>Leeuw et al’s “reformulated null hypothesis”</h2>
-<p><span class="math display">\[  Y = \beta ~ T +  \epsilon_\text{twas} \]</span> <span class="math display">\[  T = \sum_k \gamma_k ~ X_k \]</span></p>
-<p><span class="math display">\[H_0\!:~ \beta = 0\]</span></p>
-<div class="fragment">
-<p>Leeuw et al claim that this is equivalent to</p>
-<p><span class="math display">\[H_0\!:~ \hat\beta  = 0\]</span></p>
-</div>
-<div class="fragment">
-<p>This is not hypothesis testing is done. {<span class="math inline">\(\hat\beta=0\)</span>} is an event with probability 0.</p>
-</div>
-<div class="fragment">
-<p>Premise is wrong, and the conclusion is wrong</p>
-<p>We can dismiss the report that error in prediction invalidates *WAS</p>
-</div>
-</section>
-<section id="the-story-doesnt-end-there-joint-work-with" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
-<h2>The story doesn’t end there, joint work with</h2>
-<p><img data-src="assets/yanyu-and-festus.png" style="width:65.0%"></p>
-</section>
-<section id="lets-revisit-the-simulation-using-polygenic-y" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
-<h2>Let’s revisit the simulation using polygenic Y</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<p><span class="math display">\[\begin{align*}
-
-Y &amp;= \beta ~ T + \epsilon_\text{twas}\\
-
-\epsilon_\text{twas} &amp;= \sum_k X_k ~ \delta_k + \epsilon \\
-
-T &amp;= \sum_k \gamma_k ~ X_k \\
-
-\epsilon, ~\gamma,~ \delta &amp;  \perp\!\!\!\perp ~ \therefore ~ T \perp\!\!\!\perp \epsilon_\text{twas}
-
-
-\end{align*}\]</span></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>beta <span class="ot">=</span> <span class="dv">0</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>N <span class="ot">=</span> <span class="dv">1000</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a>M <span class="ot">=</span> <span class="dv">999</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>maf<span class="ot">=</span><span class="fl">0.4</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a>epsi <span class="ot">=</span> <span class="fu">rnorm</span>(N)</span>
-<span id="cb3-6"><a href="#cb3-6"></a>gamma <span class="ot">=</span> <span class="fu">rnorm</span>(M)</span>
-<span id="cb3-7"><a href="#cb3-7"></a>delta <span class="ot">=</span> <span class="fu">rnorm</span>(M)</span>
-<span id="cb3-8"><a href="#cb3-8"></a>X <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">rbinom</span>(N<span class="sc">*</span>M,<span class="dv">2</span>,maf),N,M)</span>
-<span id="cb3-9"><a href="#cb3-9"></a>T <span class="ot">=</span> X <span class="sc">%*%</span> gamma </span>
-<span id="cb3-10"><a href="#cb3-10"></a>Y <span class="ot">=</span> beta <span class="sc">*</span> T <span class="sc">+</span> X <span class="sc">%*%</span> delta <span class="sc">+</span> epsi</span>
-<span id="cb3-11"><a href="#cb3-11"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(Y <span class="sc">~</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:60%;">
-<div class="fragment">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
-</div>
-</div>
-</div>
-<div class="fragment">
-<p>Now we do see inflation</p>
-</div>
-</div>
-</div>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
 </section>
 <section id="how-does-inflation-vary-with-sample-size" class="slide level2" data-background-image="assets/slide-background.svg">
 <h2>How does inflation vary with sample size?</h2>
+<!-- end ----------------------------- -->
 
+<!-- begin ----------------------------- -->
 <img data-src="assets/twas-null-echi2-vs-nsam.png" class="r-stretch"></section>
 <section id="how-does-inflation-vary-with-heritability-of-y" class="slide level2" data-background-image="assets/slide-background.svg">
 <h2>How does inflation vary with heritability of Y?</h2>
+<!-- end ----------------------------- -->
 
+<!-- begin ----------------------------- -->
 <img data-src="assets/twas-null-echi2-vs-h2.png" class="r-stretch"></section>
 <section id="how-does-inflation-vary-with-the-number-of-snps" class="slide level2" data-background-image="assets/slide-background.svg">
 <h2>How does inflation vary with the number of SNPs?</h2>
+<!-- end ----------------------------- -->
 
+<!-- begin ----------------------------- -->
 <img data-src="assets/twas-null-echi2-vs-msnp.png" class="r-stretch"></section>
 <section id="what-does-the-inflation-look-like" class="slide level2" data-background-image="assets/slide-background.svg">
 <h2>What does the inflation look like</h2>
-<p><span class="math display">\[ E \chi^2 \propto N h^2 \frac{1}{M} ?\]</span></p>
-<div>
-<ul>
-<li class="fragment"><p>if we do the math, we get <span class="math display">\[ E \chi^2 \approx
-1 +  N ~ h^2 ~\left ( \frac{\tilde\gamma' \cdot \Sigma^2  \cdot \tilde\gamma}{\tilde\gamma' \cdot  \Sigma  \cdot \tilde\gamma} \frac{1}{M} \right )\]</span></p></li>
-<li class="fragment"><p>we define the inflation factor <span class="math inline">\(\Phi\)</span> as <span class="math display">\[ \Phi  = \frac{\tilde\gamma' \cdot \Sigma^2  \cdot \tilde\gamma}{\tilde\gamma' \cdot  \Sigma  \cdot \tilde\gamma} \frac{1}{M} \]</span></p></li>
-<li class="fragment"><p>when SNPs are independent <span class="math inline">\(\Phi = \frac{1}{M}\)</span> we get the expression we guessed <span class="math inline">\(E \chi^2 = 1 + N h^2 \frac{1}{M}\)</span></p></li>
-</ul>
+<p><span style="font-size: 1.5em;"><span class="math display">\[ E \chi^2 \approx N h^2 \frac{1}{M} ?\]</span></span></p>
+<div class="fragment">
+<p>if we do the math, we get <span style="font-size: 1.5em;"><span class="math display">\[ E \chi^2 \approx
+1 +  N ~ h^2 \frac{1}{M} \Phi_1\]</span></span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[ \text{where } \Phi_1  = \frac{\tilde\gamma' \cdot \Sigma^2  \cdot \tilde\gamma}{\tilde\gamma' \cdot  \Sigma  \cdot \tilde\gamma}  \]</span></p>
+</div>
+<div class="fragment">
+<p>when SNPs are independent, <span class="math inline">\(\Phi_1 = 1\)</span> so that <span class="math inline">\(~~~E \chi^2 = 1 + N h^2 \frac{1}{M}\)</span> pretty close to our guess</p>
 </div>
 </section>
-
 <section id="we-can-derive-a-more-general-expression" class="slide level2" data-background-image="assets/slide-background.svg">
 <h2>We can derive a more general expression</h2>
-<p>for the TWAS χ2 Statistic with Polygenic Y &amp; Noisy Mediator</p>
-<p><br><br></p>
-<p><span class="math display">\[E~\chi^2_\text{twas} \approx 1  + N ~h^2_\delta ~ \frac{\Phi(\text{gene})}{1 - \beta^2\tau^2} +  N ~ \frac{\beta^2 }{1 - \beta^2\tau^2}~\tau^2\]</span> <br><br> <br><br> where the precision <span class="math inline">\(\tau^2 = \text{signal to noise ratio} = \frac{\text{var}(T)}{\text{var}(\tilde{T})}\)</span></p>
-<!-- ## Alternative χ2 with Polygenic Y and Noisy Mediator {background-image=assets/slide-background.svg} -->
-<!-- ![](assets/alternative-chi2-polygenic-Y-noisy-T.png) -->
+<p><br></p>
+<p><span style="font-size: 1.7em;"><span class="math display">\[E~\chi^2_\text{twas} \approx 1  + N ~h^2_\delta \frac{1}{M}~ \frac{\Phi_1}{1 - \beta^2\tau^2} +  N ~ \frac{\beta^2 }{1 - \beta^2\tau^2}~\tau^2\]</span></span></p>
+<p><br><br><br><br> <span style="font-size: 0.8em;">Polygenic <span class="math inline">\(Y\)</span> and Noisy Mediator; <span class="math inline">\(\tau^2 =\text{precision} = \text{signal to noise ratio} = \frac{\text{var}(T)}{\text{var}(\tilde{T})}\)</span></span> <!-- end ----------------------------- --></p>
+<!-- begin ----------------------------- -->
 </section>
-<section id="dependence-on-precision-of-predictor" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>Dependence on Precision of Predictor</h2>
-
-<img data-src="assets/inflation-vs-precision.png" class="r-stretch"></section>
 <section id="can-we-correct-the-inflation" class="slide level2" data-background-image="assets/slide-background.svg">
 <h2>Can we correct the inflation?</h2>
 <div>
 <p><br></p>
 <ul>
 <li class="fragment"><p>Yes! <br></p></li>
-<li class="fragment"><p>Calculate the non centrality parameter <br></p></li>
 <li class="fragment"><p>Use noncentral χ2 to compute p-values <br></p></li>
-<li class="fragment"><p><span class="math inline">\(\texttt{pchisq(chi2, ncp=N*h2Y*phi, df=1, lower.tail=FALSE)}\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(\texttt{pchisq(chi2, ncp=N*h2Y*phi0, df=1, lower.tail=FALSE)}\)</span></p></li>
 </ul>
 </div>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
 </section>
-<section id="estimated-factor-φ-for-genes-metabolites-brain-features" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
-<h2>Estimated Factor Φ for Genes, Metabolites, Brain Features</h2>
-<p><img data-src="assets/phi-distribution.png" style="width:85.0%"></p>
-<p><span class="math inline">\(\Phi\)</span> values will be included in the prediction weight databases and correction added to the PrediXcan software</p>
+<section id="on-the-problem-of-inflation-in-twas-under-review" class="slide level2" data-background-image="assets/slide-background.svg">
+<h2>On the problem of inflation in TWAS (under review)</h2>
+<p><img data-src="assets/twas-inflation-biorxiv.png"></p>
+<div class="absolute" style="bottom: -90px; right: -18px; ">
+<p><img data-src="assets/yanyu-and-festus.png" width="500"></p>
+</div>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
 </section>
-<section id="take-home-message" class="slide level2" data-background-image="assets/slide-background.svg">
-<h2>Take home message</h2>
-<p><br></p>
-<div class="columns">
-<div class="column" style="width:75%;">
-<div>
-<ul>
-<li class="fragment">Standard TWAS can yield inflated p-values when the trait is highly polygenic</li>
-<li class="fragment">Inflation can be corrected by simply using the noncentral χ2 distribution when calculating the p-values</li>
-<li class="fragment">Error in prediction does not cause inflation (under reasonable assumptions)</li>
-<li class="fragment">Noisy predictors can be used which will reduce false negatives, as long as the type I error is controlled</li>
-</ul>
-</div>
-</div>
-</div>
+<section id="ratxcan-corrects-inflation-with-mixed-effects-approach" class="slide level2" data-background-image="assets/slide-background.svg">
+<h2>RatXcan corrects inflation with mixed effects approach</h2>
+<p><img data-src="assets/ratxcan-biorxiv.png"> <!-- end ----------------------------- --></p>
+<!-- begin ----------------------------- -->
 </section></section>
-<section id="thank-you" class="title-slide slide level1 center" data-background-color="white">
-<h1>Thank you</h1>
+<section>
+<section id="back-to-twas" class="title-slide slide level1 center" data-background-color="white">
+<h1>Back to TWAS</h1>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
+</section>
+<section id="limitations-of-twas-1" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>Limitations of TWAS</h2>
+<p><br><br></p>
+<div class="columns">
+<div class="column" style="width:70%;">
+<ul>
+<li><p>bulk RNA may not reveal disease relevant regulation <br> <br></p></li>
+<li><p>context-specific regulation is likely to be more relevant <br> <br></p></li>
+<li><p>transcription factor binding alteration may affect disease</p></li>
+</ul>
+</div><div class="column" style="width:30%;">
+<div class="fragment">
+<ul>
+<li><p>scPrediXcan <br> <br></p></li>
+<li><p>conteXcan <br> <br></p></li>
+<li><p>TFXcan</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><br><br> <span style="font-size: 1.3em;">Generating data with sufficient reads and sample sizes is too costly</span></p>
+</div>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
+</section></section>
+<section>
+<section id="can-deep-learning-help" class="title-slide slide level1 center" data-background-color="white">
+<h1>Can deep learning help?</h1>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
+</section>
+<section id="enformer-predicts-epigenetic-features-from-dna-sequence" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>Enformer predicts epigenetic features from DNA sequence</h2>
+<p><img data-src="assets/enformer-input-output.png" style="width:75.0%"></p>
+<p><span style="font-size: 0.7em">250 million parameters, 4.6K TPU hours</span></p>
+<div class="absolute" style="bottom: 0px; right: 0px; ">
+<p><span style="font-size: 0.5em"><span class="math inline">\(~~~~~~~~~~~~~~~~\)</span> Avsec et al Nature Methods 2021</span></p>
+</div>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
+</section>
+<section id="enformer-predicts-epigenetic-features-from-dna-sequence-1" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>Enformer predicts epigenetic features from DNA sequence</h2>
+<p><span class="math inline">\(~~~~~~\)</span> <img data-src="assets/enformer-track-performance.png" style="width:85.0%"></p>
+<div class="absolute" style="bottom: 0px; right: 0px; ">
+<p><span style="font-size: 0.5em"><span class="math inline">\(~~~~~~~~~~~~~~~~\)</span> Avsec et al Nature Methods 2021</span></p>
+</div>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
+</section>
+<section id="enformer-trained-to-perform-well-across-the-genome" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>Enformer trained to perform well across the genome</h2>
+<p><span class="math inline">\(~~~~~~~~~~~~~~~~\)</span> <img data-src="assets/enformer-dimensions-genomic-population-01.png" style="width:99.0%"> <!-- end ----------------------------- --></p>
+<!-- begin ----------------------------- -->
+</section>
+<section id="enformer-trained-to-perform-well-across-the-genome-1" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>Enformer trained to perform well across the genome</h2>
+<p><span class="math inline">\(~~~~~~~~~~~~~~~~\)</span> <img data-src="assets/enformer-dimensions-genomic-population-02.png" style="width:99.0%"> <!-- end ----------------------------- --></p>
+<!-- begin ----------------------------- -->
+</section>
+<section id="enformer-trained-to-perform-well-across-the-genome-2" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>Enformer trained to perform well across the genome</h2>
+<p><span class="math inline">\(~~~~~~~~~~~~~~~~\)</span> <img data-src="assets/enformer-dimensions-genomic-population-03.png" style="width:99.0%"> <!-- end ----------------------------- --></p>
+<!-- begin ----------------------------- -->
+</section></section>
+<section>
+<section id="can-enformer-predict-variation-across-individuals" class="title-slide slide level1 center" data-background-color="white">
+<h1>Can enformer predict variation across individuals?</h1>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
+</section>
+<section id="enformer-can-predict-variation-across-individuals---pex6" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>Enformer can predict variation across individuals - PEX6</h2>
+<p><img data-src="assets/pex6-enformer.png" style="width:75.0%"></p>
+<div class="absolute" style="bottom: -90px; right: -18px; ">
+<p><img data-src="assets/temi-sai.png" width="400"></p>
+</div>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
+</section>
+<section id="but-correlation-can-be-negative---nudt2" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>but correlation can be negative - NUDT2</h2>
+<p><img data-src="assets/nudt2-enformer.png" style="width:75.0%"></p>
+<div class="absolute" style="bottom: -90px; right: -18px; ">
+<p><img data-src="assets/temi-sai.png" width="400"></p>
+</div>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
+</section>
+<section id="personal-transcriptome-poorly-explained" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>Personal transcriptome poorly explained</h2>
+<p><img data-src="assets/enformer-problem-NG.png"></p>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
+</section>
+<section id="mean-correlation-across-genes-vs.-across-individuals" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>Mean Correlation Across Genes vs.&nbsp;Across Individuals</h2>
+<p><img data-src="assets/cross-individual-enformer-comparison-huang.png"></p>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
+</section>
+<section id="average-correlation-hides-utility-of-unsigned-of-prediction" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>Average correlation hides utility of unsigned of prediction</h2>
+<p><img data-src="assets/enformer-vs-predixcan.png" style="width:60.0%"></p>
+<div class="absolute" style="bottom: 0px; right: 0px; ">
+<p><span style="font-size: 1em">Huang et al 2023 NG</span></p>
+</div>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
+</section>
+<section id="average-correlation-hides-utility-of-unsigned-of-prediction-1" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>Average correlation hides utility of unsigned of prediction</h2>
+<p><img data-src="assets/glass_people.png" style="width:95.0%"></p>
+<div class="absolute" style="bottom: 0px; right: 0px; ">
+<p><span style="font-size: 1em">https://what-if.xkcd.com/6/</span></p>
+</div>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
+</section>
+<section id="enpact-method---training" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>Enpact Method - Training</h2>
+<p><img data-src="assets/enpact-method.png"></p>
+<p>For training, population average is used, so only a handful of samples are needed.</p>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
+</section>
+<section id="validation-of-enpact-prediction-compared-to-observed" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>Validation of Enpact prediction compared to observed</h2>
+<p><img data-src="assets/TF-enpact-vs-observed.png" style="width:99.0%"></p>
+<div class="absolute" style="bottom: -90px; right: -18px; ">
+<p><img data-src="assets/temi.png" width="200"></p>
+</div>
+<div class="fragment">
+<p><span style="font-size=2em;">Prediction performance is comparable to population-based method with 130 samples</span></p>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
+</div>
+</section>
+<section id="validation-of-enpact-prediction-compared-to-other-predictors" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>Validation of Enpact prediction compared to other predictors</h2>
+<p><img data-src="assets/enpact-vs-cwas.png"></p>
+<div class="absolute" style="top: 100px; right: 10px; ">
+<p>Top site by correlation</p>
+</div>
+<div class="absolute" style="bottom: -90px; right: -18px; ">
+<p><img data-src="assets/temi.png" width="200"></p>
+</div>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
+</section>
+<section id="most-enpact-predictors-correlate-significantly-with-cwas" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>Most enpact predictors correlate significantly with CWAS</h2>
+<p><img data-src="assets/TF-enpact-vs-cwas-01.png"></p>
+<div class="absolute" style="bottom: -90px; right: -18px; ">
+<p><img data-src="assets/temi.png" width="200"></p>
+</div>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
+</section>
+<section id="enpact-cwas-correlation-sign-is-also-inconsistent" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>Enpact CWAS correlation sign is also inconsistent</h2>
+<p><img data-src="assets/TF-enpact-vs-cwas-02.png"></p>
+<div class="absolute" style="bottom: -90px; right: -18px; ">
+<p><img data-src="assets/temi.png" width="200"></p>
+</div>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
+</section>
+<section id="identifying-tf-binding-altered-by-gwas-variants" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>Identifying TF binding altered by GWAS variants</h2>
+<p><img data-src="assets/ovarian-tfxcan.png"></p>
+<div class="absolute" style="bottom: -70px; right: -18px; ">
+<p><img data-src="assets/sofia.png" width="200"></p>
+</div>
+<div class="absolute" style="bottom: -60px; right: 200px; ">
+<p><span style="font-size: 0.6em">Sofia Salazar</span></p>
+</div>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
+</section>
+<section id="context-specific-expression-prediction-saideep-gona" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>Context specific expression prediction (Saideep Gona)</h2>
+<div class="absolute" style="bottom: -70px; right: -18px; ">
+<p><img data-src="assets/sai.png" width="200"></p>
+</div>
+<div class="absolute" style="bottom: -60px; right: 200px; ">
+<p><span style="font-size: 0.6em">Sai Gona</span></p>
+</div>
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
+<!-- ## Transcription factor binding prediction (Temidayo Adeluwa){background-image=assets/slide-background.svg .nostretch } -->
+<!-- ::: {.absolute bottom=-70 right=-18} -->
+<!-- ![](assets/temi.png){width=200} -->
+<!-- ::: -->
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
+</section>
+<section id="single-cell-expression-prediction-and-association-with-disease" class="slide level2 nostretch" data-background-image="assets/slide-background.svg">
+<h2>Single cell expression prediction and association with disease</h2>
+<p><img data-src="assets/scpredixcan-overview.png" style="width:70.0%"></p>
+<div class="absolute" style="bottom: -70px; right: -70px; ">
+<p><img data-src="assets/charles-mengjie.png" width="400"></p>
+</div>
+<!-- :::{.absolute bottom=-60 right=200} -->
+<!--  [Charles Zhou]{style="font-size: 0.6em"} -->
+<!-- ::: -->
+<!-- end ----------------------------- -->
+<!-- begin ----------------------------- -->
+</section></section>
+<section id="questions" class="title-slide slide level1 center" data-background-color="white">
+<h1>Questions?</h1>
+<!-- end ----------------------------- -->
 
 <div class="footer footer-default">
 
